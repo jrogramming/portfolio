@@ -397,7 +397,7 @@ header {
 }
 
 .adventure-log ul {
-  list-style: none;
+  list-style: square;
   padding-left: 0;
 }
 
@@ -426,11 +426,11 @@ header {
 
 /* --- Each Achievement Entry --- */
 .achievement-entry {
-  background: #f2f2f2;
+  background: #f6f0e9;
   border: 3px solid #000;
   border-radius: 6px;
-  padding: 25px 30px;
-  margin-bottom: 25px;
+  padding: 15px 40px;
+  margin-bottom: 100px;
   box-shadow: 4px 4px 0px #000;
   text-align: left;
   transition: transform 0.1s ease, box-shadow 0.1s ease;
@@ -445,9 +445,9 @@ header {
 /* --- Header and Meta Info --- */
 .achievement-header h4 {
   font-family: 'Press Start 2P', cursive;
-  font-size: 0.75rem;
+  font-size: 0.85rem;       /* slightly bigger */
   color: #000;
-  margin-bottom: 6px;
+  margin-bottom: 12px;      /* more space between name and meta */
 }
 
 .achievement-header .meta {
@@ -469,8 +469,9 @@ header {
 
 /* --- Details List --- */
 .achievement-details {
-  list-style-type: square; /* square bullets */
-  padding-left: 20px;
+  list-style-type: square;  /* keep square bullets */
+  list-style-position: inside; /* bullets inline with text, not hanging */
+  padding-left: 0;          /* remove extra left padding */
   margin-top: 10px;
 }
 
@@ -572,10 +573,31 @@ header {
   <h3>🎖️ Adventure Log</h3>
 
   <div class="achievement-entry">
+  <div class="achievement-header">
+    <h4>ANDECO</h4>
+    <span class="meta">📍 Location: McLean, VA</span>
+    <span class="meta">📅 Completion: June 2024 – August 2024</span>
+  </div>
+  <div class="achievement-role">
+    Data Analyst Intern
+  </div>
+  <ul class="achievement-details">
+    <li>Processed large data sets (critical minerals, employment) in Databricks with 150k+ entries into notebooks for acquisition.</li>
+    <li>Collaborated with data engineers to design effective data ingestion pipelines for 18 Shiny app demos.</li>
+    <li>Developed 8 data play card sets and a repeatable BI dashboard pipeline with dynamic PySpark visualizations for performance and EDA.</li>
+    <li>Presented data-driven insights of vendors’ data to government agencies and contractors for technical and non-technical clients.</li>
+  </ul>
+</div>
+
+
+  <div class="achievement-entry">
+
+
+    
     <div class="achievement-header">
       <h4>University of Virginia Computer Science Department</h4>
-      <span class="meta">📍 Quest Location: Charlottesville, VA </span>
-      <span class="meta"> 📅 Completion Time: Jan 2025 – Present</span>
+      <span class="meta">📍 Location: Charlottesville, VA </span>
+      <span class="meta"> 📅 Completion: Jan 2025 – Present</span>
     </div>
     <div class="achievement-role">
       CS 4730: Computer Game Design Teaching Assistant
@@ -588,6 +610,95 @@ header {
 
 
   </div>
+
+  <!-- Playgo AI -->
+<div class="achievement-entry">
+  <div class="achievement-header">
+    <h4>Playgo AI</h4>
+    <span class="meta">📍 Location: Seattle, WA</span>
+    <span class="meta">📅 Completion: June 2025 – August 2025</span>
+  </div>
+  <div class="achievement-role">
+    Product Marketing Analyst
+  </div>
+  <ul class="achievement-details">
+    <li>Leveraged engagement data for root cause analysis on user behavior and guided decision-making for a custom free-to-play app.</li>
+    <li>Designed 50+ deliverables and tested strategies to attract and motivate content creators for the mobile user-creation platform.</li>
+    <li>Presented QA Word and PowerPoint reports 3× weekly, documenting issues to support business decisions.</li>
+    <li>Developed workflows to manage community outreaches and track engagement metrics in a shifting, dynamic environment.</li>
+  </ul>
+</div>
+
+<!-- Toys for Less -->
+<div class="achievement-entry">
+  <div class="achievement-header">
+    <h4>Toys for Less</h4>
+    <span class="meta">📍 Location: Alexandria, VA</span>
+    <span class="meta">📅 Completion: January 2012 – Present</span>
+  </div>
+  <div class="achievement-role">
+    E-Communications Retail Lead
+  </div>
+  <ul class="achievement-details">
+    <li>Support daily retail and e-commerce operations by managing Amazon listings, coordinating product fulfillment, and assisting with packing.</li>
+    <li>Handle customer service communications, resolving inquiries and feedback to maintain high satisfaction and strengthen brand reputation.</li>
+    <li>Gather and organize sales data from Amazon dashboards to identify purchasing trends and inform restock and pricing decisions.</li>
+  </ul>
+</div>
+
+<!-- Just Another Day -->
+<div class="achievement-entry">
+  <div class="achievement-header">
+    <h4>Just Another Day</h4>
+    <span class="meta">📍 Location: Tokyo, Japan</span>
+    <span class="meta">📅 Completion: January 2024 – March 2025</span>
+  </div>
+  <div class="achievement-role">
+    Shipping and Marketing Manager
+  </div>
+  <ul class="achievement-details">
+    <li>Managed end-to-end retail product lifecycle for a 20-item set by coordinating across art, writing, and editing departments.</li>
+    <li>Planned and executed 4 major advertising campaigns, generating $5.6K in revenue from 113 orders and 1.3K site visitors.</li>
+    <li>Conducted competitive analysis and market research to refine strategy and clear 100% of inventory.</li>
+  </ul>
+</div>
+
+<!-- Infinite Horizons -->
+<div class="achievement-entry">
+  <div class="achievement-header">
+    <h4>Infinite Horizons</h4>
+    <span class="meta">📍 Location: Singapore</span>
+    <span class="meta">📅 Completion: October 2021 – August 2023</span>
+  </div>
+  <div class="achievement-role">
+    Digital Marketing Intern
+  </div>
+  <ul class="achievement-details">
+    <li>Fulfilled 250+ book and merchandise orders, raising $14K+ for charity through a video game art/writing zine collection with 55+ creators.</li>
+    <li>Created 300+ social media posts across Twitter/X and Tumblr while tracking engagement metrics across multiple audiences.</li>
+    <li>Handled customer reception, community engagement, and contributor spotlights to highlight participants and drive visibility.</li>
+    <li>Developed an Excel automation with lookup formulas to manage contributor info and maintain a responsive marketing schedule.</li>
+  </ul>
+</div>
+
+<div class="achievement-entry">
+  <div class="achievement-header">
+    <h4>Scholars’ Lab Makerspace</h4>
+    <span class="meta">📍 Location: Charlottesville, VA</span>
+    <span class="meta">📅 Completion: September 2023 – Present</span>
+  </div>
+  <div class="achievement-role">
+    Lead Technologist
+  </div>
+  <ul class="achievement-details">
+    <li>Manage a team of 15 student technologists while teaching Charlottesville community members to design and prototype projects.</li>
+    <li>Learn new tools quickly to develop training resources, workshops, and tutorials that expand access to advanced equipment and processes.</li>
+    <li>Guide visitors in developing projects and solving complex, hands-on technical challenges using a wide range of tools and equipment.</li>
+    <li>Design workshops, tutorials, and technical demonstrations with actionable steps for users of all experience levels.</li>
+  </ul>
+</div>
+
+
 </section>
 
   </section>
