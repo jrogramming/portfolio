@@ -134,13 +134,14 @@ header {
       color: var(--blue-pastel);
     }
 
-    .skill-bar {
-      background: #ffe3f3;
-      border: 2px solid var(--pink-light);
-      border-radius: 6px;
-      height: 18px;
-      position: relative;
-    }
+.skill-bar {
+  background: #ffe3f3;
+  border: 2px solid #000;  /* black outline */
+  border-radius: 6px;
+  height: 18px;
+  position: relative;
+}
+
 
 .skill-fill {
   height: 100%;
@@ -182,47 +183,10 @@ header {
       color: #888;
     }
 
-/* Pixel stars! */
-/* ✨ Pixel Star Shape */
-.star {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: currentColor;
-  color: #FFE796; /* default pastel yellow */
-  image-rendering: pixelated;
-  opacity: 0.9;
-  animation: float 6s infinite ease-in-out;
-  box-shadow:
-    0 -8px currentColor,             /* top */
-   -4px -4px currentColor, 0 -4px currentColor, 4px -4px currentColor, /* row of 3 */
-    0 0 currentColor; /* bottom corners */
-}
+    
 
-.cloud {
-  position: absolute;
-  width: 4px; 
-  height: 4px;
-  background: #ffffff; /* white cloud */
-  image-rendering: pixelated;
-  opacity: 0.9;
-  animation: drift 20s linear infinite;
-  box-shadow:
-    4px -4px #ffffff,      /* top right pixel */
-    0 -4px #ffffff,        /* top middle */
-   -4px -4px #ffffff,      /* top left */
-    8px 0 #ffffff,         /* middle right */
-    4px 0 #ffffff,          /* middle right center */
-    0 0 #ffffff,           /* middle center */
-   -4px 0 #ffffff,         /* middle left center */
-   -8px 0 #ffffff,         /* middle left */
-    12px 4px #ffffff,       /* bottom far right */
-    8px 4px #ffffff,
-    4px 4px #ffffff,
-    0 4px #ffffff,
-   -4px 4px #ffffff,
-   -8px 4px #ffffff;       /* bottom far left */
-}
+
+
 
 @keyframes drift {
   0% { transform: translateX(-50vw); } /* match your starting point */
@@ -286,6 +250,11 @@ header {
   background: #FFE796; /* soft pastel yellow */
   padding: 60px 20px;  /* keeps consistent spacing */
 }
+/* Tighter spacing for Achievements blocks */
+.achievement-entry.tight {
+  margin-bottom: 20px; /* much smaller than the 100px in adventure log */
+  padding: 12px 20px;  /* slightly smaller padding to match tighter layout */
+}
 
   </style>
 </head>
@@ -318,24 +287,45 @@ header {
 <section id="achievements" class="achievements">
   <h3>🎖️ Achievements</h3>
 
-  <div class="achievement-category">
-    <h4>EDUCATION</h4>
-    <ul>
-      <li>🎓 University of Virginia, Charlottesville, VA</li>
-      <li>B.A. Applied Statistics (Data Science & Analytics), minor in Computer Science </li>
-      <li>M.S. Statistics </li>
-    </ul>
+  <!-- EDUCATION -->
+<!-- EDUCATION -->
+<h4>EDUCATION</h4>
+
+<div class="achievement-entry tight">
+  <div class="achievement-header">
+    <h4>University of Virginia</h4>
+    <span class="meta">📍 Charlottesville, VA</span>
+    <div class="meta" style="margin-left: 20px;">🎓 B.A. Applied Statistics (Data Science & Analytics), minor in Computer Science</div>
+    <div class="meta" style="margin-left: 20px;">🎓 M.S. Statistics</div>
+  </div>
+</div>
+
+
+  <!-- HONORS & AWARDS -->
+  <h4>HONORS & AWARDS</h4>
+
+  <div class="achievement-entry tight">
+    <div class="achievement-header">
+      <h4>Echols Scholar</h4>
+      <span class="meta">🏅 Honors Program in the UVA College of Arts & Sciences</span>
+    </div>
   </div>
 
-  <div class="achievement-category">
-    <h4>HONORS & AWARDS</h4>
-    <ul>
-      <li>🏅 Echols Scholar – Honors Program in the UVA College of Arts & Sciences</li>
-      <li>🏅 Tri-Alpha Honor Society – National Honor Society for First-Generation College Students</li>
-      <li>🏅 Catalyst Program – Selective Arts & Sciences Career Readiness and Leadership Program</li>
-    </ul>
+  <div class="achievement-entry tight">
+    <div class="achievement-header">
+      <h4>Tri-Alpha Honor Society</h4>
+      <span class="meta">🏅 National Honor Society for First-Generation College Students</span>
+    </div>
+  </div>
+
+  <div class="achievement-entry tight">
+    <div class="achievement-header">
+      <h4>Catalyst Program</h4>
+      <span class="meta">🏅 Selective Arts & Sciences Career Readiness and Leadership Program</span>
+    </div>
   </div>
 </section>
+
 
 <style>
 /* Achievements Section */
@@ -409,7 +399,7 @@ header {
 }
 /* --- Adventure Log Section --- */
 #adventure-log {
-  background: #FFFCF2;
+  background: #FFE796;
   padding: 60px 15%;
   box-sizing: border-box;
   text-align: center;
@@ -509,7 +499,7 @@ header {
 
       <div class="skill">
         <div class="skill-header">
-          <div class="skill-label"><a href="#unity-projects">Unity / C#</a></div>
+          <div class="skill-label"><a href="#games-projects">Games / C#</a></div>
           <div class="lvl">LVL 7</div>
         </div>
         <div class="skill-bar"><div class="skill-fill" style="--w:70%;"></div></div>
@@ -549,7 +539,7 @@ header {
 
 <div id="game-projects" class="game-category">
 <h4>
-  <a href="unity.html" class="project-link">🎮 Games </a>
+  <a href="games.html" class="project-link">🎮 Games </a>
 </h4>
   <p>Interactive games and prototypes showcasing gameplay mechanics and design experiments.</p>
 </div>
@@ -707,41 +697,35 @@ header {
     <p>© 2025 [Jennifer Truong] · Made with 🍵 &amp; ☕</p>
   </footer>
 
-  <script>
-    // animate skill bars + floating stars
-    window.addEventListener('load', () => {
-      document.querySelectorAll('.skill-fill').forEach(el => {
-        const width = el.style.getPropertyValue('--w');
-        requestAnimationFrame(() => el.style.width = width);
-      });
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Target the skills section
+  const skillsSection = document.querySelector('#skills');
 
-      for (let i = 0; i < 15; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
-        star.style.left = Math.random() * 100 + '%';
-        star.style.top = Math.random() * 100 + '%';
-        star.style.animationDelay = (Math.random() * 5) + 's';
-        document.body.appendChild(star);
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Animate skill bars
+        document.querySelectorAll('.skill-fill').forEach(el => {
+          const width = el.style.getPropertyValue('--w');
+          requestAnimationFrame(() => el.style.width = width);
+        });
+
+        // Stop observing after first trigger
+        observer.unobserve(skillsSection);
       }
     });
-  </script>
+  }, {
+    threshold: 0.25 // trigger when 25% of the section is visible
+  });
 
-<script>
-
-
-  // PIXEL CLOUDS
-  const cloudCount = 6;
-  for (let i = 0; i < cloudCount; i++) {
-    const cloud = document.createElement('div');
-    cloud.className = 'cloud';
-    cloud.style.top = Math.random() * 60 + 'vh'; // random vertical position
-    cloud.style.left = '-50vw'; // start slightly off-screen
-    cloud.style.animationDuration = (15 + Math.random() * 10) + 's'; // random speed
-    cloud.style.opacity = 0.7 + Math.random() * 0.3; // random opacity
-    document.body.appendChild(cloud);
-  }
-
+  observer.observe(skillsSection);
+});
 </script>
+
+
+
+
 
 
 </body>
