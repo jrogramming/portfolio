@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Statistics Showcase | Jennifer Truong</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      background: #ffffff; /* plain white */
+      color: #444;
+    }
+
+    header {
+      padding: 60px 20px;
+      background: #cdeeff; /* blue from skill gradient */
+    }
+
+    h1 {
+      font-family: 'Press Start 2P', cursive;
+      color: #ff4da6;
+      font-size: 1.4rem;
+      margin: 0 0 5px 0;
+    }
+
+    h2 {
+      font-size: 1rem;
+      color: #666;
+      margin: 0;
+    }
+
+    h3 {
+      font-family: 'Press Start 2P', cursive; /* pixel style */
+      color: #ff4da6; /* grey/black from index */
+      font-size: 0.9rem; /* smaller than h1 */
+      margin: 30px 0 20px 0;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      background: #FFFCF2;
+      border: 3px solid #ffc1e3;
+      border-radius: 10px;
+      padding: 12px 20px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.7rem;
+      color: #ff4da6;
+      box-shadow: 0 4px 0 #ffc1e3;
+      transition: transform 0.1s ease-in-out;
+    }
+
+    .menu a:hover {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #ffc1e3;
+    }
+/* --- Dropdown Button --- */
+.toggle-button {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+  background: #fffbe6;
+  border: 3px solid #000;
+  border-radius: 6px;
+  color: #ff4da6;
+  padding: 14px 20px;
+  box-shadow: 4px 4px 0 #000;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  margin-bottom: 20px;
+}
+
+.toggle-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #000;
+  background: #fff3f8;
+}
+
+/* --- Collapsible PDF Container --- */
+.pdf-container {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+/* Optional: Add a little fade/slide animation */
+.pdf-container.show {
+  display: flex;
+  animation: dropDown 0.3s ease-out;
+}
+
+@keyframes dropDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+    /* --- RPubs Gamer Button --- */
+.rpubs-button {
+  display: inline-block;
+  margin: 20px auto 40px auto;
+  background: #fffbe6;
+  border: 3px solid #000;
+  border-radius: 6px;
+  padding: 16px 24px;
+  box-shadow: 4px 4px 0 #000;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.rpubs-button a {
+  text-decoration: none;
+  color: #ff4da6;
+}
+
+.rpubs-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #000;
+  background: #fff3f8; /* subtle pink tint on hover */
+}
+
+
+    main {
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 160px); /* full height minus header/footer */
+    }
+
+    .embed-card {
+      width: 130vw;
+      max-width: 800px;
+      aspect-ratio: 1 / 1; /* square */
+      border-radius: 10px;
+      overflow: hidden;
+      border: 3px solid #a7e0ff; /* matching index blue */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 0 rgba(0,0,0,0.05);
+    }
+
+    .embed-card iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>[Jennifer Truong]</h1>
+  <h2>Statistics Showcase</h2>
+  <div class="menu">
+    <a href="index.html">🏠 Back to Home</a>
+  </div>
+</header>
+
+  <h3>Statistics Showcase</h3>
+
+<div class="rpubs-button">
+  <a href="https://rpubs.com/dszCSadssad/1252371" target="_blank">
+    📊 Waste Colonialism RPubs Paper
+
+  </a>
+</div>
+
+
+<h3>Worst Plot Contest</h3>
+
+<button class="toggle-button">🎮 Click to Reveal the Contest Entry</button>
+
+<div class="pdf-container">
+  <div class="embed-card">
+    <iframe src="assets/ohmylord.pdf" width="100%" height="600px"></iframe>
+  </div>
+</div>
+<h3>Plot Revision Process</h3>
+<button class="toggle-button" data-target="best-html">🏆 Let's See It</button>
+
+<div id="best-html" class="pdf-container">
+  <div class="embed-card">
+    <iframe src="assets/bestplot.html" width="100%" height="600px"></iframe>
+  </div>
+</div>
+
+
+
+<script>
+  document.querySelectorAll('.toggle-button').forEach(button => {
+    button.addEventListener('click', () => {
+      const nextContainer = button.nextElementSibling;
+
+      // Toggle show class for this specific container
+      nextContainer.classList.toggle('show');
+
+      // Change button text depending on which one was clicked
+      if (nextContainer.querySelector('iframe')?.src.includes('ohmylord.pdf')) {
+        button.textContent = nextContainer.classList.contains('show')
+          ? '📉 My Eyes Oh My God Put it Away'
+          : '🎮 Click for Write Up';
+      } else {
+        button.textContent = nextContainer.classList.contains('show')
+          ? '✨ Alright, Cool!'
+          : '🏆 Let\'s See It';
+      }
+    });
+  });
+</script>
+
+
+
+</body>
+
+
+</html>
