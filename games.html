@@ -101,6 +101,56 @@
       padding: 0 20px;
     }
 
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1000 / 720; /* original screenshot aspect */
+      object-fit: contain; /* show the whole image without cropping */
+      max-height: 420px; /* limit very large displays */
+      border: 3px solid #a7e0ff;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      background: #fff; /* prevents transparent corners when containing */
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .game-link { display: inline-block; margin-top: 15px; }
+
+    /* Marketing-style toggle button (used for Play on itch) */
+    .toggle-button {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.7rem;
+      background: #fffbe6;
+      border: 3px solid #000;
+      border-radius: 6px;
+      color: #ff4da6;
+      padding: 14px 20px;
+      box-shadow: 4px 4px 0 #000;
+      cursor: pointer;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+      margin-bottom: 20px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .toggle-button:hover {
+      transform: translateY(2px);
+      box-shadow: 2px 2px 0 #000;
+    }
+
   </style>
 </head>
 <body>
@@ -118,13 +168,90 @@
   <div class="embed-card">
     <iframe src="https://m1ra-k.github.io/twilight-tower/" title="Twilight Tower Game"></iframe>
   </div>
-  <p class="game-description">Unity game where I developed the overworld, art, and writing. Climb the tower and uncover its mysteries!</p>
+  <p class="game-description">
+    
+    <p>
+It’s a true adventure story to the core: you’re the brave knight scaling towers to save the forlorn princess. 
+Or wait, is it a romantic fairy tale classic where you struggle on your way to finding your knight in shining armor? 
+Well, it’s both actually. Solve puzzles and fight brave battles as you experience what it’s like from both sides of the classic story.
+</p>
+
+<p>
+Click here to explore the world of <strong>Twilight Tower</strong>!
+</p>
+
+<p>
+Supported in both PC and mobile browsers (but may need to request the desktop site on mobile). 
+PC browser recommended. Controls: use mouse for everything!
+</p>
+
+<p>
+<strong>Credits:</strong><br>
+Mira Khan (Puzzle Room, Puzzle, Visual Novel &amp; SFX, Game Progression)<br>
+Jennifer Truong (Combat Room, Story, Character Art, Background Art)<br>
+Samantha Verdi (Combat &amp; SFX, Character Sprites &amp; Animations, Music)<br>
+Saniyah Smith (Combat)
+</p>
+
+
+    
+  </p>
 
   <h3>Office Escape</h3>
   <div class="embed-card">
     <iframe src="./assets/officeescape.html" title="Office Escape Game"></iframe>
   </div>
   <p class="game-description">A PICO-8 puzzle game where I created everything from the graphics and music to the code. Navigate the office and solve puzzles to escape!</p>
+
+  <h3>Fatal Flower</h3>
+  <div class="gallery">
+    <img src="assets/ff1.png" alt="Fatal Flower screenshot 1">
+    <img src="assets/ff2.png" alt="Fatal Flower screenshot 2">
+    <img src="assets/ffmap.png" alt="Fatal Flower map screenshot">
+  </div>
+  <p class="game-description">
+  
+    <p>
+set in ancient Asia, <strong>[fatal flower]</strong> is a 2D narrative-driven murder-mystery RPG that follows the story <br> of two girls who quickly find themselves caught in a growing web of murder mysteries spreading throughout their town.<br><br>
+
+our team's passion for the investigative adventure game genre had inspired us to create a murder-mystery game; as such, <br> there are various topics related to death discussed throughout the plot. for those sensitive to such themes, we recommend checking <br> the content warnings found at the bottom of this page beforehand. 
+</p>
+
+<p>🌺----------------🌺----------------🌺</p>
+
+<p><strong>development:</strong></p>
+
+<p><strong>[team]</strong><br>
+game design and programming: kanmiii<br>
+story and script: pooh<br>
+character and map art: jani<br>
+original soundtrack composition: priv<br><br>
+
+<strong>[software and resources]</strong><br>
+created in Unity. uses the Merienda font which is <br>licensed under the SIL Open Font License (OFL) included in the game files.
+</p>
+
+<p>🌼----------------🌼----------------🌼</p>
+
+<p><strong>features:</strong></p>
+
+<p>
+♥ two alternating protagonists ♥<br>
+♡ three unique murder mysteries to solve ♡<br>
+♥ three fun gameplay modes to enjoy ♥<br>
+♡ 24k+ words of dialogue ♡<br>
+♥ 11 interesting characters ♥<br>
+♡ eight distinct maps ♡<br>
+♥ nine original songs ♥<br>
+♡ one ending ♡<br>
+♥ ~2-3 hours playtime for all three cases ♥
+</p>
+
+<p>🌺----------------🌺----------------🌺</p>
+
+    
+ </p>
+    <a href="https://kanmiii.itch.io/fatal-flower" class="toggle-button" target="_blank">🎮 Play on itch.io</a>
 </main>
 
 
