@@ -6,54 +6,36 @@
   <title>[Jennifer Truong] | Statistics / Data Science · Games · Marketing</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
-  /* Radar chart container */
-  #radarChart {
-    width: 180px !important;
-    height: 180px !important;
-    margin: 0;
-  }
-  /* Ensure header and stats are centered inside jrpg-sheet */
-  .jrpg-sheet .jrpg-header { text-align:center; width:100%; margin: 0 auto; }
-  .jrpg-sheet .jrpg-stats { justify-content: center; }
-  </style>
+    :root {
+      --pink-dark: #ff4da6;
+      --pink-light: #ffc1e3;
+      --blue-pastel: #a7e0ff;
+      --bg-gradient-top: #ffeaf6;
+      --bg-gradient-bottom: #d8f3ff;
+        scroll-behavior: smooth;
 
-  <style>
-    .jrpg-info {
-      display: none; /* no longer used as a grid container */
     }
 
-    .jrpg-header {
+    body {
+      margin: 0;
+      background: linear-gradient(var(--bg-gradient-top), var(--bg-gradient-bottom));
+      font-family: 'Poppins', sans-serif;
+      color: #444;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+  padding: 100px 20px 60px;
+    }
+
+    h1 {
       font-family: 'Press Start 2P', cursive;
       color: var(--pink-dark);
-      font-size: 1rem;
-      margin: 0 0 8px 0;
-      text-align: center;
-      width: 100%;
-    }
-
-    .jrpg-row {
-      display: flex;
-      gap: 18px;
-      align-items: flex-start;
-      width: 100%;
-      justify-content: center;
-    }
-
-    .jrpg-chart-container {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-    }
-
-    .jrpg-stats {
-      display: flex;
-      gap: 20px;
-      width: 100%;
-      justify-content: center;
-      margin-top: 8px;
+      font-size: 1.6rem;
+      margin-bottom: 16px;
     }
 
     h2 {
@@ -111,10 +93,10 @@ header {
 .jrpg-sheet {
   margin-top: 48px;
   display: flex;
-  flex-direction: column;
   gap: 18px;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   background: linear-gradient(#fff7ff, #f0fdff);
   border: 4px solid #000;
   padding: 26px 20px;
@@ -123,7 +105,7 @@ header {
   margin-left: auto;
   margin-right: auto;
   box-shadow: 6px 6px 0 #000;
-  min-height: auto;
+  min-height: 220px; /* taller card */
   margin-bottom: 30px; /* space under the JRPG card */
 }
 
@@ -154,75 +136,28 @@ header {
   text-align: left;
   flex: 1;
   min-width: 320px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertically center content next to portrait */
 }
 
 .jrpg-header {
   font-family: 'Press Start 2P', cursive;
   color: var(--pink-dark);
   font-size: 1rem;
-  margin-bottom: 0;
-  text-align: center;
-  grid-column: 1 / -1;
+  margin-bottom: 12px;
+  text-align: center; /* center the title text */
 }
 
-.jrpg-stats {
-  display: flex;
-  gap: 8px;
-  grid-column: 1 / -1;
-}
-
-.jrpg-stats .stat-row {
-  flex: 1;
-  margin-bottom: 0;
-}
-
-.jrpg-chart-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  grid-column: 1 / -1;
-}
-
-.stat-row { display: flex; gap: 12px; align-items: center; margin-bottom: 8px; justify-content: center; }
-.stat-label { width: 64px; font-family: 'Press Start 2P', cursive; font-size: 0.75rem; color: #000; text-align: left; }
-.stat-bar { background: #ffe3f3; border: 2px solid #000; border-radius: 4px; height: 16px; flex: 1 1 320px; max-width: 420px; position: relative; overflow: hidden; }
+.stat-row { display: flex; gap: 12px; align-items: center; margin-bottom: 8px; }
+.stat-label { width: 84px; font-family: 'Press Start 2P', cursive; font-size: 0.75rem; color: #000; }
+.stat-bar { background: #ffe3f3; border: 2px solid #000; border-radius: 4px; height: 16px; width: 260px; position: relative; overflow: hidden; }
 .stat-fill { height: 100%; width: 0; transition: width 1s ease-out; background: linear-gradient(90deg, #ff93d3, #a7e0ff); }
-.stat-numeric { font-family: 'Poppins', sans-serif; font-size: 0.9rem; margin-left: 8px; color: #333; width: 48px; text-align: right; }
+.stat-numeric { font-family: 'Poppins', sans-serif; font-size: 0.9rem; margin-left: 8px; color: #333; }
 
 .equipment, .skills-grid { margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; }
 .eq-item { background: #FFFCF2; border: 2px solid #000; padding: 6px 8px; border-radius: 6px; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; color: var(--pink-dark); }
 .ability { background: #fff; border: 2px solid #000; padding: 6px 8px; border-radius: 4px; font-family: 'Poppins', sans-serif; font-size: 0.8rem; color: #444; }
-
-.jrpg-equipment {
-  grid-column: 1 / -1;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 10px;
-}
-
-.jrpg-skills-section {
-  grid-column: 1 / -1;
-  margin-top: 10px;
-}
-
-.jrpg-skills-label {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.65rem;
-  color: #ff4da6;
-  margin-bottom: 6px;
-  display: block;
-}
-
-.jrpg-skills-grid {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
 
 
 
@@ -427,37 +362,43 @@ header {
     
     <!-- JRPG-style Profile Sheet -->
     <div class="jrpg-sheet" role="region" aria-label="JRPG Profile">
-      <div class="jrpg-header">JENNIFER TRUONG — LVL 21</div>
+      <div class="jrpg-portrait"><img src="assets/portrait.png" alt="Jennifer's portrait"></div>
 
-      <div class="jrpg-row">
-        <div class="jrpg-portrait"><img src="assets/portrait.png" alt="Jennifer's portrait"></div>
-        <div class="jrpg-chart-container"><canvas id="radarChart"></canvas></div>
-      </div>
+      <div class="jrpg-info">
+        <div class="jrpg-header">JENNIFER TRUONG — LVL 21</div>
 
-      <div class="jrpg-stats">
         <div class="stat-row">
           <div class="stat-label">HP</div>
           <div class="stat-bar"><div class="stat-fill" data-value="86%"></div></div>
-          <div class="stat-numeric">86%</div>
+          <div class="stat-numeric">80%</div>
         </div>
 
         <div class="stat-row">
           <div class="stat-label">MP</div>
           <div class="stat-bar"><div class="stat-fill" data-value="62%"></div></div>
-          <div class="stat-numeric">62</div>
+          <div class="stat-numeric">93%</div>
         </div>
-      </div>
 
-      <div class="jrpg-equipment">
-        <div class="eq-item">Weapon: R Studio</div>
-        <div class="eq-item">Armor: UVA Statistics Hoodie</div>
-        <div class="eq-item">Accessory: Wrist Hair Tie </div>
-      </div>
+        <div class="stat-row">
+          <div class="stat-label">STR</div>
+          <div class="stat-bar"><div class="stat-fill" data-value="58%"></div></div>
+          <div class="stat-numeric">50</div>
+        </div>
 
-      <div class="jrpg-skills-section">
-        <span class="jrpg-skills-label">SKILLS</span>
-        <div class="jrpg-skills-grid">
-          <div class="ability">R</div>
+        <div class="stat-row">
+          <div class="stat-label">INT</div>
+          <div class="stat-bar"><div class="stat-fill" data-value="86%"></div></div>
+          <div class="stat-numeric">86</div>
+        </div>
+
+        <div class="equipment">
+          <div class="eq-item">Weapon: R</div>
+          <div class="eq-item">Armor: UVA Statistics Hoodie</div>
+          <div class="eq-item">Accessory: Glasses</div>
+        </div>
+
+        <div class="skills-grid">
+                    <div class="ability">R</div>
           <div class="ability">Python</div>
           <div class="ability">Unity</div>
           <div class="ability">SQL</div>
@@ -912,46 +853,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const val = el.getAttribute('data-value') || '0%';
     requestAnimationFrame(() => el.style.width = val);
   });
-
-  // Initialize radar chart
-  const ctx = document.getElementById('radarChart');
-  if (ctx) {
-    new Chart(ctx, {
-      type: 'radar',
-      data: {
-        labels: ['Work Ethic', 'Enthusiasm', 'Yapability', 'Customer Service', 'Competence'],
-        datasets: [{
-          label: 'Skills',
-          data: [92, 88, 85, 90, 89],
-          borderColor: '#ff4da6',
-          backgroundColor: 'rgba(255, 77, 166, 0.15)',
-          borderWidth: 3,
-          pointBackgroundColor: '#ff4da6',
-          pointBorderColor: '#000',
-          pointBorderWidth: 2,
-          pointRadius: 5,
-          pointHoverRadius: 7
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        layout: { padding: { top: 4, right: 8, bottom: 4, left: 8 } },
-        plugins: {
-          legend: { display: false }
-        },
-        scales: {
-          r: {
-            beginAtZero: true,
-            max: 100,
-            ticks: { color: '#666', font: { family: "'Poppins', sans-serif", size: 10 } },
-            grid: { color: 'rgba(0,0,0,0.1)' },
-            pointLabels: { color: '#444', padding: 8, font: { family: "'Press Start 2P', cursive", size: 10, weight: 'bold' } }
-          }
-        }
-      }
-    });
-  }
 });
 </script>
 
