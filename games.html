@@ -23,7 +23,7 @@
     .panel-header{font-family:'Press Start 2P';color:var(--muted);font-size:0.9rem;margin-bottom:10px}
     .panel-body{display:flex;flex-direction:column;gap:12px;padding:6px}
     .panel-actions{display:flex;align-items:center;gap:10px}
-    .toggle-button{font-family:'Press Start 2P';background:var(--panel);border:3px solid #000;color:var(--accent);padding:10px 14px;border-radius:6px;text-decoration:none;cursor:pointer}
+    .toggle-button{font-family:'Press Start 2P';font-size:0.7rem;background:#fffbe6;border:3px solid #000;color:var(--accent);padding:14px 20px;border-radius:6px;cursor:pointer;box-shadow:4px 4px 0 #000;transition:transform 0.1s ease, box-shadow 0.1s ease}
 
     .embed-card{border:3px solid #000;padding:6px;position:relative;overflow:hidden}
     .embed-card .frame-wrap{position:relative;width:100%;padding-top:56.25%;}
@@ -33,7 +33,7 @@
     .gallery img{width:200px;max-width:32%;border:3px solid #000;display:block}
 
     /* small .menu used for back-to-home link to match stats page */
-    .menu { display:flex; justify-content:center; gap:12px; }
+    .menu { display:flex; justify-content:center; gap:12px; margin-top:12px; }
     .menu a { text-decoration:none; background:#FFFCF2; border:3px solid #ffc1e3; border-radius:10px; padding:10px 14px; font-family:'Press Start 2P'; font-size:0.7rem; color:var(--accent); box-shadow:0 4px 0 #ffc1e3; }
     .menu a:hover { transform: translateY(2px); box-shadow:0 2px 0 #ffc1e3; }
 
@@ -47,11 +47,11 @@
 </head>
 <body>
   <header>
+    <h1>Gaming Corner</h1>
+    <p style="margin:8px 0 0;color:#666;font-size:0.9rem">A small selection of projects and playable demos.</p>
     <div class="menu">
       <a href="index.html">🏠 Back to Home</a>
     </div>
-    <h1>Gaming Corner</h1>
-    <p style="margin:8px 0 0;color:#666;font-size:0.9rem">A small selection of projects and playable demos.</p>
   </header>
 
   <main>
