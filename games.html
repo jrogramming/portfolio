@@ -3,253 +3,226 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unity Project | Jennifer Truong</title>
+  <title>Gaming Corner | Jennifer Truong</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      text-align: center;
-      background: #ffffff; /* plain white */
-      color: #444;
-    }
+    :root{--yellow:#FFE796;--panel:#FFF8E0;--accent:#ff4da6;--muted:#444}
+    body{margin:0;font-family:'Poppins',sans-serif;background:#fff;color:var(--muted);}
+    header{padding:48px 20px;background:linear-gradient(90deg,#f0f8ff,#e8f7ff);text-align:center}
+    h1{font-family:'Press Start 2P',cursive;color:var(--accent);font-size:1.2rem;margin:0}
+    h3{font-family:'Press Start 2P',cursive;color:var(--muted);font-size:0.9rem;margin:24px 0}
 
-    header {
-      padding: 60px 20px;
-      background: #cdeeff; /* blue from skill gradient */
-    }
+    /* JRPG layout */
+    .jrpg-wrap{display:flex;gap:18px;align-items:flex-start;justify-content:flex-start;padding:24px 28px;margin:0 auto 0 60px}
+    .jrpg-menu{width:220px;background:var(--panel);border:4px solid #000;padding:16px;border-radius:6px;box-shadow:6px 6px 0 #000}
+    .jrpg-menu ul{list-style:none;padding:8px;margin:0;display:flex;flex-direction:column;gap:8px}
+    .jrpg-menu li{padding:12px;background:transparent;border:3px solid transparent;cursor:pointer;font-family:'Press Start 2P';font-size:0.85rem}
+    .jrpg-menu li.selected{background:var(--yellow);border-color:#000;color:#0b1320;box-shadow:0 4px 0 rgba(0,0,0,0.3);transform:translateY(2px)}
 
-    h1 {
-      font-family: 'Press Start 2P', cursive;
-      color: #ff4da6;
-      font-size: 1.4rem;
-      margin: 0 0 5px 0;
-    }
+    .jrpg-panel{flex:1;max-width:920px;border:4px solid #000;background:#fff;padding:18px;border-radius:6px;box-shadow:6px 6px 0 #000}
+    .panel-header{font-family:'Press Start 2P';color:var(--muted);font-size:0.9rem;margin-bottom:10px}
+    .panel-body{display:flex;flex-direction:column;gap:12px;padding:6px}
+    .panel-actions{display:flex;align-items:center;gap:10px}
+    .toggle-button{font-family:'Press Start 2P';background:var(--panel);border:3px solid #000;color:var(--accent);padding:10px 14px;border-radius:6px;text-decoration:none;cursor:pointer}
 
-    h2 {
-      font-size: 1rem;
-      color: #666;
-      margin: 0;
-    }
+    .embed-card{border:3px solid #000;padding:6px;position:relative;overflow:hidden}
+    .embed-card .frame-wrap{position:relative;width:100%;padding-top:56.25%;}
+    .embed-card iframe{position:absolute;left:0;top:0;width:100%;height:100%;border:0}
 
-    h3 {
-      font-family: 'Press Start 2P', cursive; /* pixel style */
-      color: #444; /* grey/black from index */
-      font-size: 0.9rem; /* smaller than h1 */
-      margin: 30px 0 20px 0;
-    }
+    .gallery{display:flex;gap:10px;align-items:flex-start;margin-top:8px}
+    .gallery img{width:200px;max-width:32%;border:3px solid #000;display:block}
 
-    .menu {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
+    /* small .menu used for back-to-home link to match stats page */
+    .menu { display:flex; justify-content:center; gap:12px; }
+    .menu a { text-decoration:none; background:#FFFCF2; border:3px solid #ffc1e3; border-radius:10px; padding:10px 14px; font-family:'Press Start 2P'; font-size:0.7rem; color:var(--accent); box-shadow:0 4px 0 #ffc1e3; }
+    .menu a:hover { transform: translateY(2px); box-shadow:0 2px 0 #ffc1e3; }
 
-    .menu a {
-      text-decoration: none;
-      background: #FFFCF2;
-      border: 3px solid #ffc1e3;
-      border-radius: 10px;
-      padding: 12px 20px;
-      font-family: 'Press Start 2P', cursive;
-      font-size: 0.7rem;
-      color: #ff4da6;
-      box-shadow: 0 4px 0 #ffc1e3;
-      transition: transform 0.1s ease-in-out;
-    }
+    .stat-row{display:grid;grid-template-columns:160px 1fr;gap:8px;align-items:start}
+    .stat-key{font-family:'Press Start 2P';font-size:0.75rem;color:#222}
+    .stat-value{font-size:1rem;text-align:left}
+    .desc p{margin:0}
 
-    .menu a:hover {
-      transform: translateY(2px);
-      box-shadow: 0 2px 0 #ffc1e3;
-    }
-
-    main {
-      padding: 40px 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      min-height: auto;
-    }
-
-    .embed-card {
-      width: 90vw;
-      max-width: 800px;
-      aspect-ratio: 1 / 1; /* square */
-      border-radius: 10px;
-      overflow: hidden;
-      border: 3px solid #a7e0ff; /* matching index blue */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 0 rgba(0,0,0,0.05);
-    }
-
-    .embed-card iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    .game-description {
-      max-width: 700px;
-      font-size: 0.95rem;
-      color: #666;
-      line-height: 1.6;
-      margin-top: 20px;
-      padding: 0 20px;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      max-width: 800px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 1000 / 720; /* original screenshot aspect */
-      object-fit: contain; /* show the whole image without cropping */
-      max-height: 420px; /* limit very large displays */
-      border: 3px solid #a7e0ff;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-      background: #fff; /* prevents transparent corners when containing */
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    .game-link { display: inline-block; margin-top: 15px; }
-
-    /* Marketing-style toggle button (used for Play on itch) */
-    .toggle-button {
-      font-family: 'Press Start 2P', cursive;
-      font-size: 0.7rem;
-      background: #fffbe6;
-      border: 3px solid #000;
-      border-radius: 6px;
-      color: #ff4da6;
-      padding: 14px 20px;
-      box-shadow: 4px 4px 0 #000;
-      cursor: pointer;
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
-      margin-bottom: 20px;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .toggle-button:hover {
-      transform: translateY(2px);
-      box-shadow: 2px 2px 0 #000;
-    }
-
+    @media(max-width:800px){.jrpg-wrap{flex-direction:column;padding:12px}.jrpg-menu{width:100%}.jrpg-panel{max-width:100%}}
   </style>
 </head>
 <body>
+  <header>
+    <div class="menu">
+      <a href="index.html">🏠 Back to Home</a>
+    </div>
+    <h1>Gaming Corner</h1>
+    <p style="margin:8px 0 0;color:#666;font-size:0.9rem">A small selection of projects and playable demos.</p>
+  </header>
 
-<header>
-  <h1>[Jennifer Truong]</h1>
-  <h2>Unity Project Showcase</h2>
-  <div class="menu">
-    <a href="index.html">🏠 Back to Home</a>
-  </div>
-</header>
+  <main>
+    <section class="jrpg-wrap" aria-label="Gaming JRPG Menu">
+      <div class="jrpg-menu">
+        <ul id="game-menu">
+          <li class="selected" data-key="twilight">Twilight Tower</li>
+          <li data-key="fatal">Fatal Flower</li>
+          <li data-key="office">Office Escape</li>
+        </ul>
+      </div>
 
-<main>
-  <h3>Twilight Tower</h3>
-  <div class="embed-card">
-    <iframe src="https://m1ra-k.github.io/twilight-tower/" title="Twilight Tower Game"></iframe>
-  </div>
-  <p class="game-description">
-    
-    <p>
-It’s a true adventure story to the core: you’re the brave knight <br>scaling towers to save the forlorn princess. <br><br>
-Or wait, is it a romantic fairy tale classic where you struggle <br>on your way to finding your knight in shining armor? <br><br>
-Well, it’s both actually. Solve puzzles and fight brave battles as <br>you experience what it’s like from both sides of the classic story.<br><br>
-</p>
+      <div class="jrpg-panel">
+        <div class="panel-header"><div id="game-title">Twilight Tower</div></div>
+        <div class="panel-body">
+          <div class="panel-actions">
+            <a id="game-link" class="toggle-button" href="#" target="_blank">Open</a>
+            <div id="game-extra" style="display:inline-flex;gap:8px;align-items:center"></div>
+            <button id="game-embed-toggle" class="toggle-button">View Embed</button>
+          </div>
 
-<p>
-Supported in both PC and mobile browsers (but may need to request the desktop site on mobile). 
-<br>PC browser recommended. <br>Controls: use mouse for everything!
-</p>
+          <div id="game-gallery" class="gallery" hidden></div>
 
-<p>
-<strong>Credits:</strong><br>
-Mira Khan (Puzzle Room, Puzzle, Visual Novel &amp; SFX, Game Progression)<br>
-Jennifer Truong (Combat Room, Story, Character Art, Background Art)<br>
-Samantha Verdi (Combat &amp; SFX, Character Sprites &amp; Animations, Music)<br>
-Saniyah Smith (Combat)
-</p>
+          <div id="game-embed" class="embed-card" hidden>
+            <div class="frame-wrap">
+              <iframe id="game-iframe" src="" title="Game Embed"></iframe>
+            </div>
+          </div>
 
+          <div class="stat-row"><div class="stat-key">Usage:</div><div id="game-usage" class="stat-value">Classic adventure puzzle-combat experience</div></div>
+          <div class="stat-row"><div class="stat-key">Abilities:</div><div id="game-abilities" class="stat-value">Unity, C# scripting, combat design, character art, background art</div></div>
+          <div class="stat-row"><div class="stat-key">Equippable By:</div><div id="game-equip" class="stat-value">Collaborator – contributed combat, story, character art</div></div>
+          <div class="stat-row"><div class="stat-key">Item ID:</div><div id="game-id" class="stat-value">Playable in browser (link on portfolio)</div></div>
 
-    
-  </p>
+          <div class="desc"><p id="game-desc">Twilight Tower is a hybrid adventure and fairy-tale-style game where you solve puzzles and fight through a tower to achieve narrative goals. I was responsible for combat rooms, the story, and creating character and environment artwork. The game supports both PC and mobile browsers, with controls optimized for mouse play.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <h3>Fatal Flower</h3>
-  <div class="gallery">
-    <img src="assets/ff1.png" alt="Fatal Flower screenshot 1">
-    <img src="assets/ff2.png" alt="Fatal Flower screenshot 2">
-    <img src="assets/ffmap.png" alt="Fatal Flower map screenshot">
-  </div>
-  <p class="game-description">
-  
-    <p>
-set in ancient Asia, <strong>[fatal flower]</strong> is a 2D narrative-driven murder-mystery RPG that follows the story <br> of two girls who quickly find themselves caught in a growing web of murder mysteries spreading throughout their town.<br><br>
+  <script>
+  (function(){
+    const data = {
+      twilight: {
+        title: 'Twilight Tower',
+        usage: 'Classic adventure puzzle-combat experience',
+        abilities: ['Unity','C# scripting','combat design','character art','background art'],
+        equip: 'Credits: Mira Khan (Puzzle Room, Puzzle, Visual Novel & SFX, Game Progression); Jennifer Truong (Combat Room, Story, Character Art, Background Art); Samantha Verdi (Combat & SFX, Character Sprites & Animations, Music); Saniyah Smith (Combat)',
+        id: 'Playable in browser (link on portfolio)',
+        description: `Twilight Tower is a hybrid adventure and fairy-tale-style game where you solve puzzles and fight through a tower to achieve narrative goals. I was responsible for combat rooms, the story, and creating character and environment artwork. The game supports both PC and mobile browsers, with controls optimized for mouse play. It blends narrative exploration with strategic encounters in a cohesive experience.`,
+        link: 'https://m1ra-k.github.io/twilight-tower/',
+        embed: 'https://m1ra-k.github.io/twilight-tower/',
+        embedRatio: 100
+      },
+      fatal: {
+        title: 'Fatal Flower',
+        usage: '2D narrative mystery RPG',
+        abilities: ['Unity','collaborative game development'],
+        equip: 'Team – programming/design, story, art, music roles',
+        id: 'itch.io play link (on portfolio)',
+        description: `Fatal Flower is a narrative-driven murder mystery set in ancient Asia, following two protagonists as they untangle interconnected cases. The project features multiple gameplay modes, original music, and a large dialogue corpus. I contributed as part of the team that brought this world and its mechanics to life in Unity.`,
+        link: 'https://kanmiii.itch.io/fatal-flower',
+        embed: '',
+        embedRatio: 56.25,
+        gallery: [
+          'assets/ff1.png',
+          'assets/ff2.png',
+          'assets/ffmap.png'
+        ]
+      },
+      office: {
+        title: 'Office Escape',
+        usage: 'PICO-8 puzzle challenge',
+        abilities: ['PICO-8','sprite art','music composition','game logic'],
+        equip: 'Sole creator',
+        id: '(link on portfolio)',
+        description: `Office Escape is a retro-inspired puzzle game developed entirely in PICO-8, where the player navigates office spaces and solves puzzles to escape.`,
+        link: './assets/officeescape.html',
+        embed: './assets/officeescape.html',
+        embedRatio: 75
+      }
+    };
 
-our team's passion for the investigative adventure game genre had inspired us to create a murder-mystery game; as such, <br> there are various topics related to death discussed throughout the plot. for those sensitive to such themes, we recommend checking <br> the content warnings found at the bottom of this page beforehand. 
-</p>
+    const menu = Array.from(document.querySelectorAll('#game-menu li'));
+    const panel = {
+      title: document.getElementById('game-title'),
+      usage: document.getElementById('game-usage'),
+      abilities: document.getElementById('game-abilities'),
+      equip: document.getElementById('game-equip'),
+      id: document.getElementById('game-id'),
+      desc: document.getElementById('game-desc'),
+      gallery: document.getElementById('game-gallery'),
+      link: document.getElementById('game-link'),
+      extra: document.getElementById('game-extra'),
+      embedToggle: document.getElementById('game-embed-toggle'),
+      embedArea: document.getElementById('game-embed'),
+      iframe: document.getElementById('game-iframe')
+    };
 
-<p>🌺----------------🌺----------------🌺</p>
+    let current = 0;
 
-<p><strong>development:</strong></p>
+    function select(i){
+      if (i<0) i=0; if (i>=menu.length) i=menu.length-1;
+      menu.forEach((m,idx)=>m.classList.toggle('selected', idx===i));
+      current = i;
+      const key = menu[i].dataset.key;
+      update(key);
+      panel.embedArea.hidden = true; panel.iframe.src = ''; panel.embedToggle.textContent = 'View Embed';
+    }
 
-<p><strong>[team]</strong><br>
-game design and programming: kanmiii<br>
-story and script: pooh<br>
-character and map art: jani<br>
-original soundtrack composition: priv<br><br>
+    function update(key){
+      const d = data[key];
+      panel.title.textContent = d.title;
+      panel.usage.textContent = d.usage;
+      panel.abilities.textContent = d.abilities.join(' • ');
+      if (typeof d.equip === 'string' && d.equip.startsWith('Credits:')) {
+        panel.equip.innerHTML = d.equip.replace(/;\s*/g, '<br>');
+      } else {
+        panel.equip.textContent = d.equip;
+      }
+      panel.id.textContent = d.id;
+      panel.desc.textContent = d.description;
+      panel.link.href = d.link || '#';
+      panel.link.textContent = d.link ? (d.link.includes('itch.io') ? 'Play on itch.io' : 'Open') : 'Open';
+      panel.extra.innerHTML = '';
+      // gallery handling
+      if (d.gallery && d.gallery.length){
+        panel.gallery.hidden = false;
+        panel.gallery.innerHTML = d.gallery.map(src => `<img src="${src}" alt="${d.title} screenshot">`).join('');
+      } else {
+        panel.gallery.hidden = true;
+        panel.gallery.innerHTML = '';
+      }
+      if (d.embed) {
+        panel.embedToggle.style.display='inline-block';
+        panel.embedToggle.dataset.embed = d.embed;
+        panel.embedToggle.dataset.ratio = d.embedRatio || 56.25;
+      }
+      else { panel.embedToggle.style.display='none'; panel.embedArea.hidden=true; panel.iframe.src=''; }
+    }
 
-<strong>[software and resources]</strong><br>
-created in Unity. uses the Merienda font which is <br>licensed under the SIL Open Font License (OFL) included in the game files.
-</p>
+    menu.forEach((m,idx)=>m.addEventListener('click', ()=>select(idx)));
+    document.addEventListener('keydown', (e)=>{
+      if (['ArrowUp','ArrowDown','Enter'].includes(e.key)) e.preventDefault();
+      if (e.key==='ArrowUp') select(current-1);
+      if (e.key==='ArrowDown') select(current+1);
+      if (e.key==='Enter') toggleEmbed();
+    });
 
-<p>🌼----------------🌼----------------🌼</p>
+    function toggleEmbed(){
+      const url = panel.embedToggle.dataset.embed;
+      if (!url) return;
+      const showing = !panel.embedArea.hidden;
+      const wrap = panel.embedArea.querySelector('.frame-wrap');
+      if (showing) {
+        panel.embedArea.hidden = true;
+        panel.iframe.src = '';
+        panel.embedToggle.textContent = 'View Embed';
+      } else {
+        const ratio = panel.embedToggle.dataset.ratio || '56.25';
+        if (wrap) wrap.style.paddingTop = ratio + '%';
+        panel.iframe.src = url;
+        panel.embedArea.hidden = false;
+        panel.embedToggle.textContent = 'Hide Embed';
+      }
+    }
 
-<p><strong>features:</strong></p>
-
-<p>
-♥ two alternating protagonists ♥<br>
-♡ three unique murder mysteries to solve ♡<br>
-♥ three fun gameplay modes to enjoy ♥<br>
-♡ 24k+ words of dialogue ♡<br>
-♥ 11 interesting characters ♥<br>
-♡ eight distinct maps ♡<br>
-♥ nine original songs ♥<br>
-♡ one ending ♡<br>
-♥ ~2-3 hours playtime for all three cases ♥
-</p>
-
-<p>🌺----------------🌺----------------🌺</p>
-
-    
- </p>
-    <a href="https://kanmiii.itch.io/fatal-flower" class="toggle-button" target="_blank">🎮 Play on itch.io</a>
-
-  <h3>Office Escape</h3>
-  <div class="embed-card">
-    <iframe src="./assets/officeescape.html" title="Office Escape Game"></iframe>
-  </div>
-  <p class="game-description">A PICO-8 puzzle game where I created everything from the graphics and music to the code. Navigate the office and solve puzzles to escape!</p>
-</main>
-
+    panel.embedToggle.addEventListener('click', toggleEmbed);
+    select(0);
+  })();
+  </script>
 
 </body>
 </html>
