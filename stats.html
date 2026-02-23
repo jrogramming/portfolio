@@ -167,6 +167,18 @@
     .panel-actions .toggle-button { margin:0; padding:16px 22px; }
     .rpubs-button.small { padding:10px 12px; font-size:0.65rem; box-shadow:3px 3px 0 #000; }
 
+    .section-blurb {
+      max-width: 750px;      /* controls line length */
+      margin: 40px auto;     /* centers it horizontally */
+      padding: 0 20px;       /* breathing room on small screens */
+      line-height: 1.7;      /* improves readability */
+      text-align: center;
+    }
+
+    .section-blurb p {
+      margin-bottom: 16px;   /* clean paragraph spacing */
+    }
+    
     /* Contain embed inside the panel instead of overflowing the layout */
     #embed-area.embed-card { width:100%; max-width:100%; border-radius:8px; box-shadow:none; border:3px solid #000; margin-top:18px; overflow:hidden; }
     #embed-area.embed-card iframe { height:660px; border:none; }
@@ -181,11 +193,26 @@
 
 <header>
   <h1>Statistics Showcase</h1>
-  <p style="margin:8px 0 0;color:#666;font-size:0.9rem">Statistics and data science work.</p>
+
+  <section class="section-blurb">
+    <div class="blurb-inner">
+
+      <p>I found statistics entirely by accident.</p>
+
+      <p>In 10th grade, I switched into AP Stats just to get out of a dead-end elective. What started as an excuse introduced me to the most practical and exciting field I’d ever explored.</p>
+
+      <p>Suddenly, there was a structured and methodical way to investigate messy, complex questions — to understand decisions, behavior, and patterns through clear, decisive data grounded in real-world application and judgment.</p>
+
+    </div>
+  </section>
+
   <div class="menu">
     <a href="index.html">🏠 Back to Home</a>
   </div>
 </header>
+
+
+
 
   <section class="jrpg-wrap" aria-label="Portfolio JRPG Menu">
     <div class="jrpg-menu">

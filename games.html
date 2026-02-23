@@ -41,15 +41,35 @@
     .stat-key{font-family:'Press Start 2P';font-size:0.75rem;color:#222}
     .stat-value{font-size:1rem;text-align:left}
     .desc p{margin:0}
+.section-blurb {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
 
+.blurb-inner {
+  max-width: 700px;   /* this controls line length */
+  width: 100%;
+  padding: 0 20px;
+  line-height: 1.7;
+  color: #444;
+}
     @media(max-width:800px){.jrpg-wrap{flex-direction:column;padding:12px}.jrpg-menu{width:100%}.jrpg-panel{max-width:100%}}
   </style>
 </head>
 <body>
   <header>
     <h1>Gaming Corner</h1>
-    <p style="margin:8px 0 0;color:#666;font-size:0.9rem">A small selection of projects and playable demos.</p>
-    <div class="menu">
+<section class="section-blurb">
+  <div class="blurb-inner">
+    <p>I’ve played games since before I could read. In fact, I learned to read because of — and for — my DS Lite.</p>
+
+    <p>My parents, immigrants who didn’t grow up with technology, didn’t really understand gaming. Still, they saved up to buy me consoles anyway. To them, it was a way for me to stay connected with pop culture and engage my brain.</p>
+
+    <p>It’s something that’s been with me for as long as I can remember.</p>
+
+  </div>
+</section>    <div class="menu">
       <a href="index.html">🏠 Back to Home</a>
     </div>
   </header>
