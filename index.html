@@ -33,9 +33,9 @@
 
     h1 {
       font-family: 'Press Start 2P', cursive;
-      color: var(--pink-dark);
-      font-size: 1.6rem;
-      margin-bottom: 16px;
+      color: white;
+      font-size: 2rem;
+      margin-bottom: 24px;
     }
 
     h2 {
@@ -53,7 +53,7 @@
     }
 header {
   padding: 100px 20px 60px;
-  background: #cdeeff; /* pastel baby blue */
+  background: #8dd9ff; /* pastel baby blue */
 }
 
     .menu a {
@@ -97,14 +97,14 @@ header {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  background: linear-gradient(#fff7ff, #f0fdff);
+  background: linear-gradient(hsl(47, 24%, 93%), hsl(42, 43%, 91%));
   border: 4px solid #000;
   padding: 26px 20px;
   border-radius: 10px;
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 6px 6px 0 #000;
+  box-shadow: 6px 6px 0 rgb(73, 73, 73);
   min-height: 220px; /* taller card */
   margin-bottom: 30px; /* space under the JRPG card */
 }
@@ -143,16 +143,16 @@ header {
 
 .jrpg-header {
   font-family: 'Press Start 2P', cursive;
-  color: var(--pink-dark);
+  color: rgb(73, 73, 73);
   font-size: 1rem;
   margin-bottom: 12px;
   text-align: center; /* center the title text */
 }
 
 .stat-row { display: flex; gap: 12px; align-items: center; margin-bottom: 8px; }
-.stat-label { width: 84px; font-family: 'Press Start 2P', cursive; font-size: 0.75rem; color: #000; }
-.stat-bar { background: #ffe3f3; border: 2px solid #000; border-radius: 4px; height: 16px; width: 260px; position: relative; overflow: hidden; }
-.stat-fill { height: 100%; width: 0; transition: width 1s ease-out; background: linear-gradient(90deg, #ff93d3, #a7e0ff); }
+.stat-label { width: 84px; font-family: 'Press Start 2P', cursive; font-size: 0.75rem; color: S#000; }
+.stat-bar { background: #FFE796; border: 2px solid #000; border-radius: 4px; height: 16px; width: 260px; position: relative; overflow: hidden; }
+.stat-fill { height: 100%; width: 0; transition: width 1s ease-out; background: linear-gradient(90deg, #a7e0ff, #a7e0ff); }
 .stat-numeric { font-family: 'Poppins', sans-serif; font-size: 0.9rem; margin-left: 8px; color: #333; }
 
 .equipment, .skills-grid { margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; }
@@ -207,7 +207,7 @@ header {
     }
 
 .skill-bar {
-  background: #ffe3f3;
+  background: #FFE796;
   border: 2px solid #000;  /* black outline */
   border-radius: 6px;
   height: 18px;
@@ -335,37 +335,18 @@ header {
   <header>
     <h1>[Jennifer Truong]</h1>
     <h2>Data Scientist · Game Developer · Marketing Strategist</h2>
-
-    <div class="menu">
-      <a href="#about">▶ START</a>
-      <a href="#projects">💾 PROJECTS</a>
-      <a href="#skills">📊 SKILLS</a>
-      <a href="#contact">💌 CONTACT</a>
-      
-    </div>
-  </header>
-
-  <section id="about" class="about">
-    <h3>ABOUT ME</h3>
-    <p>
-
-      <br> Hello! I'm Jennifer, a fourth year at the University of Virginia. </br>
-
-      <br> My career interest is in human-centric data. Whether it’s marketing or fraud detection, the data-driven approach to solving issues for and by people is my interest. I’d like to resolve issues with methodical, possibly statistical, methods and observing historical precedent in numbers with human judgements and insights to see the people in the data to determine what the insights and decisions to make are. </br>
-
-<br> I’ve years of work history in entertainment e-commerce from marketing, retail, and data and find great fulfillment in continuing to pursue it in any form, especially related to gaming as it is the utmost people-first experience. </br>
-
-
-
-
-    </p>
-    
-    <!-- JRPG-style Profile Sheet -->
+<!-- JRPG-style Profile Sheet -->
     <div class="jrpg-sheet" role="region" aria-label="JRPG Profile">
       <div class="jrpg-portrait"><img src="assets/portrait.png" alt="Jennifer's portrait"></div>
 
       <div class="jrpg-info">
-        <div class="jrpg-header">JENNIFER TRUONG — LVL 22</div>
+        <div class="jrpg-header">JENNIFER — LVL 22</div>
+
+
+          <div class="stat-row">
+          <div class="stat-label">CLASS: </div>
+          <div class="stat-numeric">UVA 2026</div>
+        </div>
 
         <div class="stat-row">
           <div class="stat-label">HP</div>
@@ -392,9 +373,9 @@ header {
         </div>
 
         <div class="equipment">
-          <div class="eq-item">Weapon: R</div>
+          <div class="eq-item">Weapon: R Studio</div>
           <div class="eq-item">Armor: UVA Statistics Hoodie</div>
-          <div class="eq-item">Accessory: Glasses</div>
+          <div class="eq-item">Accessory: Waddle Dee Keychain</div>
         </div>
 
         <div class="skills-grid">
@@ -407,6 +388,32 @@ header {
       </div>
     </div>
   </section>
+    <div class="menu">
+      <a href="#about">▶ START</a>
+      <a href="#projects">💾 PROJECTS</a>
+      <a href="#skills">📊 SKILLS</a>
+      <a href="#contact">💌 CONTACT</a>
+      
+    </div>
+  </header>
+
+  <section id="about" class="about">
+    <h3>ABOUT ME</h3>
+    
+    <p>
+
+      <br> Hello! I'm Jennifer, a fourth year at the University of Virginia. </br>
+
+      <br> My career interest is in human-centric data. Whether it’s marketing or fraud detection, the data-driven approach to solving issues for and by people is my interest. I’d like to resolve issues with methodical, possibly statistical, methods and observing historical precedent in numbers with human judgements and insights to see the people in the data to determine what the insights and decisions to make are. </br>
+
+<br> I’ve years of work history in entertainment e-commerce from marketing, retail, and data and find great fulfillment in continuing to pursue it in any form, especially related to gaming as it is the utmost people-first experience. </br>
+
+
+
+
+    </p>
+    
+    
 
 <section id="achievements" class="achievements">
   <h3>🎖️ Achievements</h3>
@@ -545,7 +552,7 @@ header {
   border-radius: 6px;
   padding: 15px 40px;
   margin-bottom: 100px;
-  box-shadow: 4px 4px 0px #000;
+  box-shadow: 4px 4px 0px rgb(73, 73, 73);
   text-align: left;
   transition: transform 0.1s ease, box-shadow 0.1s ease;
   cursor: default;
@@ -553,7 +560,7 @@ header {
 
 .achievement-entry:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px #000;
+  box-shadow: 6px 6px 0px rgb(73, 73, 73);
 }
 
 /* --- Header and Meta Info --- */
