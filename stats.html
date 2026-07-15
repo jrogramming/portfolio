@@ -6,11 +6,11 @@
   <title>Statistics Showcase | Jennifer Truong</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root{--yellow:#FFE796;--panel:#FFF8E0;--accent:#ff4da6;--muted:#444}
+    :root{--yellow:#FFE796;--panel:#FFF8E0;--accent:#444;--muted:#444}
     body{margin:0;font-family:'Poppins',sans-serif;background:#fff;color:var(--muted);}
 
-    header{padding:48px 20px;background:linear-gradient(90deg,#f0f8ff,#e8f7ff);text-align:center}
-    h1{font-family:'Press Start 2P',cursive;color:var(--accent);font-size:1.2rem;margin:0}
+    header{padding:48px 20px;background:linear-gradient(90deg,#8dd9ff,#8dd9ff);text-align:center}
+    h1{font-family:'Press Start 2P',cursive;color:var(--accent);font-size:1.6rem;margin:0}
 
     h2 {
       font-size: 0.9rem;
@@ -33,20 +33,20 @@
 
     .menu a {
       text-decoration: none;
-      background: #FFFCF2;
-      border: 3px solid #ffc1e3;
+      background: #FFF8E0;
+      border: 3px solid #000000;
       border-radius: 10px;
       padding: 10px 14px;
       font-family: 'Press Start 2P', cursive;
       font-size: 0.7rem;
       color: var(--accent);
-      box-shadow: 0 4px 0 #ffc1e3;
+      box-shadow: 0 4px 0 #666;
       transition: transform 0.1s ease-in-out;
     }
 
     .menu a:hover {
       transform: translateY(2px);
-      box-shadow: 0 2px 0 #ffc1e3;
+      box-shadow: 0 2px 0 #414141;
     }
 /* --- Dropdown Button --- */
 .toggle-button {
@@ -57,7 +57,7 @@
   border-radius: 6px;
   color: #ff4da6;
   padding: 14px 20px;
-  box-shadow: 4px 4px 0 #000;
+  box-shadow: 4px 4px 0 #414141;
   cursor: pointer;
   transition: transform 0.1s ease, box-shadow 0.1s ease;
   margin-bottom: 20px;
@@ -65,7 +65,7 @@
 
 .toggle-button:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #000;
+  box-shadow: 6px 6px 0 #414141;
   background: #fff3f8;
 }
 
@@ -102,7 +102,7 @@
   border: 3px solid #000;
   border-radius: 6px;
   padding: 16px 24px;
-  box-shadow: 4px 4px 0 #000;
+  box-shadow: 4px 4px 0 #666;
   font-family: 'Press Start 2P', cursive;
   font-size: 0.7rem;
   transition: transform 0.1s ease, box-shadow 0.1s ease;
@@ -110,13 +110,13 @@
 
 .rpubs-button a {
   text-decoration: none;
-  color: #ff4da6;
+  color: #2e1f26;
 }
 
 .rpubs-button:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #000;
-  background: #fff3f8; /* subtle pink tint on hover */
+  box-shadow: 6px 6px 0 #666;
+  background: #fffbe6; 
 }
 
 
@@ -137,7 +137,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 0 rgba(0,0,0,0.05);
+      box-shadow: 0 4px 0 #666;
       margin: 20px auto;
     }
 
@@ -146,13 +146,13 @@
     <style>
     /* JRPG menu styles */
     .jrpg-wrap { display:flex; justify-content:flex-start; gap:28px; padding:24px 28px; align-items:flex-start; max-width:1200px; margin:0 auto 0 60px; }
-    .jrpg-menu { width:220px; background:var(--panel); border:4px solid #000; border-radius:8px; padding:16px; box-shadow:6px 6px 0 #000; }
+    .jrpg-menu { width:220px; background:var(--panel); border:4px solid #000; border-radius:8px; padding:16px; box-shadow:6px 6px 0 #414141; }
     .jrpg-menu ul { list-style:none; margin:0; padding:6px; }
     .jrpg-menu li { font-family:'Press Start 2P', cursive; color:#333; background:#FFF8E0; padding:12px; margin:10px 0; border-radius:6px; cursor:pointer; border:3px solid transparent; font-size:0.85rem }
-    .jrpg-menu li.selected { background:var(--yellow); color:#0b1320; transform:translateY(2px); box-shadow:0 4px 0 rgba(0,0,0,0.3); border-color:#000 }
+    .jrpg-menu li.selected { background:var(--yellow); color:#0b1320; transform:translateY(2px); box-shadow:0 4px 0 rgba(0,0,0,0.3); border-color:#414141 }
 
     .jrpg-panel { flex:1; max-width:920px; text-align:left; }
-    .panel-header { background:#fff3f8; border:4px solid #000; padding:16px; border-radius:8px; }
+    .panel-header { background:#FFE796; border:4px solid #000; padding:16px; border-radius:8px; }
     #panel-title { font-family:'Press Start 2P', cursive; color:var(--muted); font-size:0.9rem; }
     #panel-sub { color:#666; font-size:0.75rem; margin-top:6px; }
 
@@ -165,7 +165,7 @@
     .panel-actions { display:flex; gap:12px; align-items:center; padding-bottom:20px; }
     .panel-actions .rpubs-button { margin:0; padding:18px 28px; }
     .panel-actions .toggle-button { margin:0; padding:16px 22px; }
-    .rpubs-button.small { padding:10px 12px; font-size:0.65rem; box-shadow:3px 3px 0 #000; }
+    .rpubs-button.small { padding:10px 12px; font-size:0.65rem; box-shadow:3px 3px 0 #666; }
 
     .section-blurb {
       max-width: 750px;      /* controls line length */
