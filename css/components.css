@@ -353,3 +353,24 @@
         grid-template-columns:1fr;
     }
 }
+.gallery{
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    margin-top:20px;
+}
+
+
+.gallery img{
+
+    width:200px;
+    height:120px;
+
+    object-fit:cover;
+
+    border:3px solid #000;
+
+    border-radius:8px;
+
+    display:block;
+}
