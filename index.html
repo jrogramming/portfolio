@@ -38,8 +38,9 @@
     }
 
     h2 {
-      color: hsl(0, 0%, 40%);
-      font-size: 1.5rem;
+    font-family: 'Poppins';
+    color: hsl(0, 0%, 40%);
+      font-size: 1.6rem;
       margin-top: 0;
     }
 
@@ -96,7 +97,7 @@ header {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  background: linear-gradient(hsl(47, 24%, 93%), hsl(42, 43%, 91%));
+  background: #FFFCF2;
   border: 4px solid #000;
   padding: 48px 48px;
   border-radius: 10px;
@@ -112,7 +113,7 @@ header {
   width: 240px;
   height: 240px;
   background: #ffe3f3;
-  border: 3px solid #000;
+  border: 4px solid #000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -128,7 +129,7 @@ header {
   height: 100%;
   display: block;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 
 .jrpg-info {
@@ -151,22 +152,21 @@ header {
 .stat-row { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
 .stat-label { width: 96px; font-family: 'Press Start 2P', cursive; font-size: 0.75rem; color: S#000; }
 .stat-bar { background: #FFE796; border: 2px solid #000; border-radius: 4px; height: 20px; width: 420px; position: relative; overflow: hidden; }
-.stat-fill { height: 100%; width: 0; transition: width 1s ease-out; background: linear-gradient(90deg, #a7e0ff, #a7e0ff); }
+.stat-fill { height: 100%; width: 0; transition: width 1s ease-out; background: linear-gradient(90deg, #ffc1e3, #a7e0ff); }
 .stat-numeric { font-family: 'Press Start 2P', sans-serif; font-size: .8rem; margin-left: 12px; color: #333; }
 
 .equipment, .skills-grid { margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap; }
-.eq-item { background: #FFFCF2; border: 2px solid #000; padding: 6px 8px; border-radius: 6px; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; color: var(--pink-dark); }
+.eq-item { background: #fffafb; border: 2px solid #000; padding: 6px 8px; border-radius: 6px; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; color: var(--pink-dark); }
 .ability { background: #fff; border: 2px solid #000; padding: 4px 8px; border-radius: 2px; font-family: 'Press Start 2P', sans-serif; font-size: 0.6rem; color: #444; }
 
 
 
     .skills {
-      background: #f0f9ff;
-    }
+          background: #fffafb;
 
+    }
     h3 {
       font-family: 'Press Start 2P', cursive;
-      color: var(--pink-dark);
       font-size: 1rem;
       margin-bottom: 30px;
     }
@@ -247,7 +247,7 @@ header {
 
 
     footer {
-      background: #fff8fc;
+      background: #fffafb;
       padding: 30px 20px;
       font-size: 0.8rem;
       color: #888;
@@ -319,8 +319,8 @@ header {
 }
 /* Tighter spacing for Achievements blocks */
 .achievement-entry.tight {
-  margin-bottom: 20px; /* much smaller than the 100px in adventure log */
-  padding: 12px 20px;  /* slightly smaller padding to match tighter layout */
+  margin-bottom: 30px; /* much smaller than the 100px in adventure log */
+  padding: 22px 30px;  /* slightly smaller padding to match tighter layout */
 }
 
   </style>
@@ -408,7 +408,8 @@ header {
 
     </p>
     
-    
+      </section>
+
 
 <section id="achievements" class="achievements">
   <h3>🎖️ Achievements</h3>
@@ -457,7 +458,7 @@ header {
 /* Achievements Section */
 .achievements {
   background: #fffafb;
-  padding: 60px 15%;
+  padding: 60px 20%;
   box-sizing: border-box;
 }
 
