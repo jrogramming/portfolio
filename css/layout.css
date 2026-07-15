@@ -1,0 +1,122 @@
+/* ==========================================================
+   LAYOUT.CSS
+   Shared page layouts
+   ==========================================================*/
+
+/* ---------- Header ---------- */
+
+header{
+    padding:48px 20px;
+    background:#8dd9ff;
+    text-align:center;
+}
+
+/* ---------- Common Sections ---------- */
+
+section{
+    width:100%;
+}
+
+main{
+    padding:40px 20px;
+}
+
+/* ---------- Text Blocks ---------- */
+
+.section-blurb{
+
+    max-width:750px;
+
+    margin:40px auto;
+
+    padding:0 20px;
+
+    text-align:center;
+
+    line-height:1.7;
+}
+
+.section-blurb p{
+
+    margin-bottom:16px;
+}
+
+/* ---------- Generic Containers ---------- */
+
+.container{
+
+    width:min(1200px,90%);
+
+    margin:0 auto;
+}
+
+.narrow-container{
+
+    width:min(800px,90%);
+
+    margin:0 auto;
+}
+
+/* ---------- Full Width Sections ---------- */
+
+.full-width{
+
+    width:100vw;
+
+    margin-left:calc(50% - 50vw);
+
+    margin-right:calc(50% - 50vw);
+}
+
+/* ---------- Two Column Layout ---------- */
+
+.two-column{
+
+    display:flex;
+
+    gap:40px;
+
+    align-items:flex-start;
+}
+
+.two-column > *{
+
+    flex:1;
+}
+
+/* ---------- Center Helpers ---------- */
+
+.center{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width:900px){
+
+    header{
+
+        padding:36px 18px;
+    }
+
+    main{
+
+        padding:24px 16px;
+    }
+
+    .two-column{
+
+        flex-direction:column;
+    }
+
+    .section-blurb{
+
+        margin:30px auto;
+    }
+
+}

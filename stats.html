@@ -1,422 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Statistics Showcase | Jennifer Truong</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root{--yellow:#FFE796;--panel:#FFF8E0;--accent:#444;--muted:#444}
-    body{margin:0;font-family:'Poppins',sans-serif;background:#fff;color:var(--muted);}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    header{padding:48px 20px;background:linear-gradient(90deg,#8dd9ff,#8dd9ff);text-align:center}
-    h1{font-family:'Press Start 2P',cursive;color:var(--accent);font-size:1.6rem;margin:0}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    h2 {
-      font-size: 0.9rem;
-      color: #666;
-      margin: 8px 0 0;
-    }
+    <title>Statistics Showcase | Jennifer Truong</title>
 
-    h3 {
-      font-family: 'Press Start 2P', cursive; /* pixel style */
-      color: var(--muted);
-      font-size: 0.9rem; /* smaller than h1 */
-      margin: 30px 0 20px 0;
-    }
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-    .menu {
-      display: flex;
-      justify-content: center;
-      margin-top: 12px;
-    }
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
 
-    .menu a {
-      text-decoration: none;
-      background: #FFF8E0;
-      border: 3px solid #000000;
-      border-radius: 10px;
-      padding: 10px 14px;
-      font-family: 'Press Start 2P', cursive;
-      font-size: 0.7rem;
-      color: var(--accent);
-      box-shadow: 0 4px 0 #666;
-      transition: transform 0.1s ease-in-out;
-    }
+    <!-- Page Specific -->
+    <link rel="stylesheet" href="css/showcase.css">
 
-    .menu a:hover {
-      transform: translateY(2px);
-      box-shadow: 0 2px 0 #414141;
-    }
-/* --- Dropdown Button --- */
-.toggle-button {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.7rem;
-  background: #fffbe6;
-  border: 3px solid #000;
-  border-radius: 6px;
-  color: #ff4da6;
-  padding: 14px 20px;
-  box-shadow: 4px 4px 0 #414141;
-  cursor: pointer;
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
-  margin-bottom: 20px;
-}
-
-.toggle-button:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #414141;
-  background: #fff3f8;
-}
-
-/* --- Collapsible PDF Container --- */
-.pdf-container {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 40px;
-}
-
-/* Optional: Add a little fade/slide animation */
-.pdf-container.show {
-  display: flex;
-  animation: dropDown 0.3s ease-out;
-}
-
-@keyframes dropDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-    /* --- RPubs Gamer Button --- */
-.rpubs-button {
-  display: inline-block;
-  margin: 20px auto 40px auto;
-  background: #fffbe6;
-  border: 3px solid #000;
-  border-radius: 6px;
-  padding: 16px 24px;
-  box-shadow: 4px 4px 0 #666;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.7rem;
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
-}
-
-.rpubs-button a {
-  text-decoration: none;
-  color: #2e1f26;
-}
-
-.rpubs-button:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #666;
-  background: #fffbe6; 
-}
-
-
-    main {
-      padding: 40px 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: calc(100vh - 160px); /* full height minus header/footer */
-    }
-
-    .embed-card {
-      width: 90vw;
-      max-width: 1000px;
-      border-radius: 10px;
-      overflow: hidden;
-      border: 3px solid #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 0 #666;
-      margin: 20px auto;
-    }
-
-  </style>
-
-    <style>
-    /* JRPG menu styles */
-    .jrpg-wrap { display:flex; justify-content:flex-start; gap:28px; padding:24px 28px; align-items:flex-start; max-width:1200px; margin:0 auto 0 60px; }
-    .jrpg-menu { width:220px; background:var(--panel); border:4px solid #000; border-radius:8px; padding:16px; box-shadow:6px 6px 0 #414141; }
-    .jrpg-menu ul { list-style:none; margin:0; padding:6px; }
-    .jrpg-menu li { font-family:'Press Start 2P', cursive; color:#333; background:#FFF8E0; padding:12px; margin:10px 0; border-radius:6px; cursor:pointer; border:3px solid transparent; font-size:0.85rem }
-    .jrpg-menu li.selected { background:var(--yellow); color:#0b1320; transform:translateY(2px); box-shadow:0 4px 0 rgba(0,0,0,0.3); border-color:#414141 }
-
-    .jrpg-panel { flex:1; max-width:920px; text-align:left; }
-    .panel-header { background:#FFE796; border:4px solid #000; padding:16px; border-radius:8px; }
-    #panel-title { font-family:'Press Start 2P', cursive; color:var(--muted); font-size:0.9rem; }
-    #panel-sub { color:#666; font-size:0.75rem; margin-top:6px; }
-
-    .panel-body { background:#ffffff; border:3px solid #000; padding:22px 22px 22px 28px; border-radius:8px; margin-top:14px; }
-    .stat-row { display:grid; grid-template-columns:160px 1fr; gap:12px; align-items:start; justify-items:start; margin:8px 0; font-weight:600; color:#333; }
-    .stat-key { font-family:'Press Start 2P', cursive; color:#222; display:block; min-width:140px; text-align:left; font-size:0.75rem }
-    .stat-value { display:block; text-align:left; color:#333; font-weight:500; font-size:1rem }
-    .desc { margin-top:12px; color:#444; line-height:1.45; text-align:left; }
-
-    .panel-actions { display:flex; gap:12px; align-items:center; padding-bottom:20px; }
-    .panel-actions .rpubs-button { margin:0; padding:18px 28px; }
-    .panel-actions .toggle-button { margin:0; padding:16px 22px; }
-    .rpubs-button.small { padding:10px 12px; font-size:0.65rem; box-shadow:3px 3px 0 #666; }
-
-    .section-blurb {
-      max-width: 750px;      /* controls line length */
-      margin: 40px auto;     /* centers it horizontally */
-      padding: 0 20px;       /* breathing room on small screens */
-      line-height: 1.7;      /* improves readability */
-      text-align: center;
-    }
-
-    .section-blurb p {
-      margin-bottom: 16px;   /* clean paragraph spacing */
-    }
-    
-    /* Contain embed inside the panel instead of overflowing the layout */
-    #embed-area.embed-card { width:100%; max-width:100%; border-radius:8px; box-shadow:none; border:3px solid #000; margin-top:18px; overflow:hidden; }
-    #embed-area.embed-card iframe { height:660px; border:none; }
-    /* Ensure the embed area takes no layout space while hidden */
-    #embed-area[hidden] { display: none !important; }
-
-    @media (max-width:900px) { .jrpg-wrap { flex-direction:column; align-items:stretch; padding:12px; } .jrpg-menu { width:100%; } .jrpg-panel { width:100%; max-width:none; } #embed-area.embed-card iframe { height:420px; } }
-
-    </style>
 </head>
+
+
 <body>
 
 <header>
-  <h1>Statistics Showcase</h1>
 
-  <section class="section-blurb">
-    <div class="blurb-inner">
+    <h1>Statistics Showcase</h1>
 
-      <p>I found statistics entirely by accident.</p>
+    <section class="section-blurb">
+        <div class="blurb-inner">
 
-      <p>In 10th grade, I switched into AP Stats just to get out of a dead-end elective. What started as an excuse introduced me to the most practical and exciting field I’d ever explored.</p>
+            <p>
+                I found statistics entirely by accident.
+            </p>
 
-      <p>Suddenly, there was a structured and methodical way to investigate messy, complex questions — to understand decisions, behavior, and patterns through clear, decisive data grounded in real-world application and judgment.</p>
+            <p>
+                In 10th grade, I switched into AP Stats just to get out of a dead-end elective.
+                What started as an excuse introduced me to the most practical and exciting field
+                I'd ever explored.
+            </p>
 
+            <p>
+                Suddenly, there was a structured and methodical way to investigate messy,
+                complex questions—to understand decisions, behavior, and patterns through
+                clear, decisive data grounded in real-world application and judgment.
+            </p>
+
+        </div>
+    </section>
+
+
+    <div class="menu">
+        <a href="index.html">
+            🏠 Back to Home
+        </a>
     </div>
-  </section>
 
-  <div class="menu">
-    <a href="index.html">🏠 Back to Home</a>
-  </div>
 </header>
 
 
 
+<section class="jrpg-wrap" aria-label="Portfolio JRPG Menu">
 
-  <section class="jrpg-wrap" aria-label="Portfolio JRPG Menu">
+
     <div class="jrpg-menu">
-      <ul id="menu-list">
-        <li class="selected" data-key="waste">Waste Colonialism RPubs Paper</li>
-        <li data-key="penguin">Penguin Visualizer</li>
-        <li data-key="worst">Worst Plot Contest Entry</li>
-        <li data-key="revision">Plot Revision Process</li>
-        <li data-key="isam">ISAM Project</li>
-      </ul>
+
+        <ul id="menu-list">
+
+            <li class="selected" data-key="waste">
+                Waste Colonialism RPubs Paper
+            </li>
+
+            <li data-key="penguin">
+                Penguin Visualizer
+            </li>
+
+            <li data-key="worst">
+                Worst Plot Contest Entry
+            </li>
+
+            <li data-key="revision">
+                Plot Revision Process
+            </li>
+
+            <li data-key="isam">
+                ISAM Project
+            </li>
+
+        </ul>
+
     </div>
+
+
 
     <div class="jrpg-panel">
-      <div class="panel-header">
-        <div id="panel-title">Waste Colonialism RPubs Paper</div>
-      </div>
 
-      <div class="panel-body">
-        <div class="panel-actions">
-          <a id="primary-link" class="rpubs-button" href="https://rpubs.com/dszCSadssad/1252371" target="_blank">Open Paper</a>
-          <div id="extra-links" style="display:flex;gap:8px;align-items:center;margin-left:6px"></div>
-          <button id="embed-toggle" class="toggle-button">View Embed</button>
+
+        <div class="panel-header">
+
+            <div id="panel-title">
+                Waste Colonialism RPubs Paper
+            </div>
+
         </div>
 
-        <div id="embed-area" class="embed-card" hidden>
-          <iframe id="embed-frame" src="" width="100%" height="600px"></iframe>
+
+
+        <div class="panel-body">
+
+
+            <div class="panel-actions">
+
+
+                <a
+                    id="primary-link"
+                    class="rpubs-button"
+                    href="https://rpubs.com/dszCSadssad/1252371"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Open Paper
+                </a>
+
+
+
+                <div id="extra-links" class="extra-links"></div>
+
+
+
+                <button
+                    id="embed-toggle"
+                    class="toggle-button"
+                    type="button"
+                >
+                    View Embed
+                </button>
+
+
+            </div>
+
+
+
+
+            <div id="embed-area" class="embed-card" hidden>
+
+                <iframe
+                    id="embed-frame"
+                    src=""
+                    width="100%"
+                    height="600"
+                    title="Embedded Statistics Project"
+                    loading="lazy"
+                ></iframe>
+
+            </div>
+
+
+
+
+            <div class="stat-row">
+
+                <span class="stat-key">
+                    Usage:
+                </span>
+
+                <span id="usage" class="stat-value">
+                    Applied research storytelling with real data
+                </span>
+
+            </div>
+
+
+
+
+            <div class="stat-row">
+
+                <span class="stat-key">
+                    Abilities:
+                </span>
+
+                <span id="abilities" class="stat-value">
+                    R • Data cleaning • Visualization • Statistical analysis
+                </span>
+
+            </div>
+
+
+
+
+            <div class="stat-row">
+
+                <span class="stat-key">
+                    Equippable By:
+                </span>
+
+                <span id="equip" class="stat-value">
+                    Primary author / sole creator
+                </span>
+
+            </div>
+
+
+
+
+            <div class="desc">
+
+                <p id="description">
+                    This project analyzes patterns of waste distribution in relation to colonial structures using real datasets.
+                    I cleaned and organized messy data, created clear visuals, and connected statistical results to social context.
+                    The work blends technical analysis with narrative explanation so readers can understand both the numbers and
+                    their implications. It shows how data can be used to examine real-world systems critically.
+                </p>
+
+            </div>
+
+
         </div>
 
-        <div class="stat-row"><span class="stat-key">Usage:</span> <span id="usage" class="stat-value">Applied research storytelling with real data</span></div>
-        <div class="stat-row"><span class="stat-key">Abilities:</span> <span id="abilities" class="stat-value">R • Data cleaning • Visualization • Statistical analysis</span></div>
-        <div class="stat-row"><span class="stat-key">Equippable By:</span> <span id="equip" class="stat-value">Primary author / sole creator</span></div>
 
-        <div class="desc">
-          <p id="description">This project analyzes patterns of waste distribution in relation to colonial structures using real datasets. I cleaned and organized messy data, created clear visuals, and connected statistical results to social context. The work blends technical analysis with narrative explanation so readers can understand both the numbers and their implications. It shows how data can be used to examine real-world systems critically.</p>
-        </div>
-      </div>
     </div>
-  </section>
-
-  <!-- ISAM content is now integrated into the JRPG menu above -->
 
 
+</section>
 
 
-<script>
-  (function(){
-    const data = {
-      waste: {
-        title: 'Waste Colonialism RPubs Paper',
-        usage: 'Applied research storytelling with real data',
-        abilities: ['R','Data cleaning','Visualization','Statistical analysis'],
-        equip: 'Primary author / sole creator',
-        description: `This project analyzes patterns of waste distribution in relation to colonial structures using real datasets. I cleaned and organized messy data, created clear visuals, and connected statistical results to social context. The work blends technical analysis with narrative explanation so readers can understand both the numbers and their implications. It shows how data can be used to examine real-world systems critically.`,
-        link: 'https://rpubs.com/dszCSadssad/1252371',
-        embed: ''
-      },
-      penguin: {
-        title: 'Penguin Visualizer',
-        usage: 'Interactive data exploration tool',
-        abilities: ['Shiny','R','Interactive controls','Data filtering'],
-        equip: 'Integrator / project enhancer',
-        description: `This is an interactive Shiny app that lets users explore penguin data dynamically. Viewers can switch variables and compare species in real time. The tool makes statistical exploration more intuitive and engaging. It showcases how interactivity can support learning and analysis.`,
-        link: 'https://serega29rus.shinyapps.io/PengApp/',
-        embed: 'https://serega29rus.shinyapps.io/PengApp/'
-      },
-      worst: {
-        title: 'Worst Plot Contest Entry',
-        usage: 'Creative statistical visualization challenge',
-        abilities: ['ggplot2','Aesthetic experimentation','Playful data display'],
-        equip: 'Creator / contest participant',
-        description: `This project intentionally creates a “bad” plot for a data visualization contest. I pushed ggplot2 to its limits in unconventional ways to explore what makes graphics ineffective. The exercise highlights why certain design choices confuse viewers rather than inform them. Ultimately, it reinforces good visualization principles through contrast and humor.`,
-        link: 'assets/ohmylord.pdf',
-        embed: 'assets/ohmylord.pdf'
-      },
-      revision: {
-        title: 'Plot Revision Process',
-        usage: 'Step-by-step plot improvement walkthrough',
-        abilities: ['Iterative design','R plotting functions','Critique-based refinement'],
-        equip: 'Sole creator',
-        description: `This project documents how a messy initial plot evolves into a clearer one. Each revision explains what changed and why it improved communication. The focus is on reasoning, not just coding, showing how feedback shapes better visuals. It demonstrates reflective thinking about data presentation.`,
-        link: 'assets/bestplot.html',
-        embed: 'assets/bestplot.html'
-      }
-      ,
-      isam: {
-        title: 'ISAM Project',
-        usage: 'ISAM research paper and presentation',
-        abilities: ['Research','Data analysis','Presentation'],
-        equip: 'Sole creator / collaborator',
-        description: `ISAM project materials: paper and accompanying presentation slides documenting methodology and results.`,
-        link: 'assets/Phan_Truong.pdf',
-        embed: 'assets/Phan_Truong.pdf',
-        extraLinks: [
-          { href: 'assets/presentation.pdf', label: 'Open Presentation' }
-        ]
-      }
-    };
 
-    const menuEls = Array.from(document.querySelectorAll('#menu-list li'));
-    const panel = {
-      title: document.getElementById('panel-title'),
-      usage: document.getElementById('usage'),
-      abilities: document.getElementById('abilities'),
-      equip: document.getElementById('equip'),
-      description: document.getElementById('description'),
-      primaryLink: document.getElementById('primary-link'),
-      extraLinks: document.getElementById('extra-links'),
-      embedToggle: document.getElementById('embed-toggle'),
-      embedArea: document.getElementById('embed-area'),
-      embedFrame: document.getElementById('embed-frame')
-    };
-
-    let currentIndex = 0;
-
-    function selectIndex(i){
-      if (i < 0) i = 0; if (i >= menuEls.length) i = menuEls.length-1;
-      menuEls.forEach((el, idx) => el.classList.toggle('selected', idx === i));
-      currentIndex = i;
-      const key = menuEls[i].dataset.key;
-      updatePanel(key);
-      // hide embed when switching
-      panel.embedArea.hidden = true;
-      panel.embedFrame.src = '';
-      panel.embedToggle.textContent = 'View Embed';
-    }
-
-    function updatePanel(key){
-      const item = data[key];
-      panel.title.textContent = item.title;
-      panel.usage.textContent = item.usage;
-      panel.abilities.textContent = item.abilities.join(' • ');
-      panel.equip.textContent = item.equip;
-      panel.description.textContent = item.description;
-      if (item.link) {
-        panel.primaryLink.href = item.link;
-        panel.primaryLink.style.display = 'inline-block';
-        panel.primaryLink.textContent = item.link.endsWith('.pdf') ? 'Open PDF' : (item.link.includes('shinyapps') ? 'Open App' : 'Open');
-      } else {
-        panel.primaryLink.style.display = 'none';
-      }
-      // populate extra links
-      panel.extraLinks.innerHTML = '';
-      if (item.extraLinks && item.extraLinks.length) {
-        item.extraLinks.forEach(linkObj => {
-          const a = document.createElement('a');
-          a.href = linkObj.href;
-          a.target = '_blank';
-          a.className = 'rpubs-button small';
-          a.textContent = linkObj.label || 'Open';
-          panel.extraLinks.appendChild(a);
-        });
-      }
-      // attach embed url to dataset for toggle
-      panel.embedToggle.dataset.embed = item.embed || '';
-      // show or hide embed toggle depending on availability
-      if (item.embed) {
-        panel.embedToggle.style.display = 'inline-block';
-      } else {
-        panel.embedToggle.style.display = 'none';
-        panel.embedArea.hidden = true;
-        panel.embedFrame.src = '';
-        panel.embedToggle.textContent = 'View Embed';
-      }
-    }
-
-    // click handlers
-    menuEls.forEach((el, idx) => el.addEventListener('click', () => selectIndex(idx)));
-
-    // keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (['ArrowUp','ArrowDown','Enter'].includes(e.key)) {
-        e.preventDefault();
-      }
-      if (e.key === 'ArrowUp') selectIndex(currentIndex - 1);
-      if (e.key === 'ArrowDown') selectIndex(currentIndex + 1);
-      if (e.key === 'Enter') toggleEmbed();
-    });
-
-    function toggleEmbed(){
-      const embedUrl = panel.embedToggle.dataset.embed;
-      if (!embedUrl) return;
-      const showing = !panel.embedArea.hidden;
-      if (showing) {
-        panel.embedArea.hidden = true;
-        panel.embedFrame.src = '';
-        panel.embedToggle.textContent = 'View Embed';
-      } else {
-        panel.embedFrame.src = embedUrl;
-        panel.embedArea.hidden = false;
-        panel.embedToggle.textContent = 'Hide Embed';
-      }
-    }
-
-    panel.embedToggle.addEventListener('click', toggleEmbed);
-
-    // init
-    selectIndex(0);
-
-  })();
-</script>
-
-
+<script src="stats.js" defer></script>
 
 </body>
-
 
 </html>

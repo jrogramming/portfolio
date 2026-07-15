@@ -1,0 +1,355 @@
+/* ==========================================================
+   COMPONENTS.CSS
+   Shared UI components for portfolio pages
+   ==========================================================*/
+
+/* ---------- Navigation ---------- */
+
+.menu {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.menu a {
+    text-decoration: none;
+    background: var(--panel);
+    border: 3px solid #000;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    color: var(--accent);
+    box-shadow: 0 4px 0 var(--shadow);
+    transition: transform .1s ease, box-shadow .1s ease;
+}
+
+.menu a:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 var(--shadow-dark);
+}
+
+/* ---------- Generic Pixel Buttons ---------- */
+
+.toggle-button,
+.rpubs-button {
+    display: inline-block;
+
+    font-family: 'Press Start 2P', cursive;
+    font-size: .7rem;
+
+    background: #fffbe6;
+    border: 3px solid #000;
+    border-radius: 6px;
+
+    color: #2e1f26;
+
+    padding: 16px 24px;
+
+    box-shadow: 4px 4px 0 var(--shadow-dark);
+
+    cursor: pointer;
+    text-decoration: none;
+
+    transition:
+        transform .1s ease,
+        box-shadow .1s ease,
+        background .15s ease;
+}
+
+.toggle-button:hover,
+.rpubs-button:hover {
+    transform: translate(-2px,-2px);
+    box-shadow: 6px 6px 0 var(--shadow-dark);
+    background: #fff3f8;
+}
+
+.rpubs-button.small{
+    padding:10px 14px;
+    font-size:.65rem;
+    box-shadow:3px 3px 0 var(--shadow);
+}
+
+/* ---------- Embed Containers ---------- */
+
+.embed-card{
+    width:100%;
+    max-width:100%;
+
+    border:3px solid #000;
+    border-radius:8px;
+
+    overflow:hidden;
+
+    margin-top:18px;
+}
+
+.embed-card iframe{
+    width:100%;
+    height:660px;
+    border:none;
+}
+
+.embed-card[hidden]{
+    display:none!important;
+}
+
+/* ---------- JRPG Layout ---------- */
+
+.jrpg-wrap{
+
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+
+    gap:40px;
+
+    max-width:1350px;
+
+    margin:55px auto 0;
+
+    padding:24px 40px;
+
+    transform:translateX(-45px);
+}
+
+/* ---------- Sidebar ---------- */
+
+.jrpg-menu{
+
+    width:250px;
+
+    background:var(--panel);
+
+    border:4px solid #000;
+    border-radius:8px;
+
+    padding:16px;
+
+    box-shadow:6px 6px 0 var(--shadow-dark);
+}
+
+.jrpg-menu ul{
+
+    list-style:none;
+    margin:0;
+    padding:6px;
+}
+
+.jrpg-menu li{
+
+    font-family:'Press Start 2P',cursive;
+    font-size:.82rem;
+
+    background:#FFF8E0;
+
+    padding:12px;
+
+    margin:10px 0;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    transition:.12s ease;
+
+    border:3px solid transparent;
+}
+
+.jrpg-menu li:hover{
+
+    background:#fff1b8;
+}
+
+.jrpg-menu li.selected{
+
+    background:var(--yellow);
+
+    border-color:var(--shadow-dark);
+
+    transform:translateY(2px);
+
+    box-shadow:0 4px 0 rgba(0,0,0,.3);
+}
+.extra-links{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    margin-left:6px;
+}
+/* ---------- Main Panel ---------- */
+
+.jrpg-panel{
+
+    flex:1;
+
+    max-width:980px;
+
+    text-align:left;
+}
+
+.panel-header{
+
+    background:var(--yellow);
+
+    border:4px solid #000;
+
+    border-radius:8px;
+
+    padding:18px;
+}
+
+#panel-title{
+
+    font-family:'Press Start 2P',cursive;
+
+    font-size:.95rem;
+
+    color:var(--muted);
+}
+
+#panel-sub{
+
+    margin-top:6px;
+
+    color:#666;
+
+    font-size:.75rem;
+}
+
+.panel-body{
+
+    background:#fff;
+
+    border:3px solid #000;
+
+    border-radius:8px;
+
+    padding:24px 28px;
+
+    margin-top:16px;
+}
+
+/* ---------- Buttons inside panel ---------- */
+
+.panel-actions{
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+    padding-bottom:20px;
+
+    flex-wrap:wrap;
+}
+
+.panel-actions .rpubs-button,
+.panel-actions .toggle-button{
+
+    margin:0;
+}
+
+/* ---------- Stats ---------- */
+
+.stat-row{
+
+    display:grid;
+
+    grid-template-columns:170px 1fr;
+
+    gap:14px;
+
+    margin:12px 0;
+
+    align-items:start;
+}
+
+.stat-key{
+
+    font-family:'Press Start 2P',cursive;
+
+    font-size:.74rem;
+
+    color:#222;
+}
+
+.stat-value{
+
+    color:#333;
+
+    font-size:1rem;
+
+    font-weight:500;
+}
+
+.desc{
+
+    margin-top:16px;
+
+    line-height:1.6;
+
+    color:#444;
+}
+
+/* ---------- Animations ---------- */
+
+.pdf-container.show{
+
+    display:flex;
+
+    animation:dropDown .3s ease-out;
+}
+
+@keyframes dropDown{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-10px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+    }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width:900px){
+
+    .jrpg-wrap{
+
+        flex-direction:column;
+
+        transform:none;
+
+        margin:30px auto;
+
+        padding:16px;
+    }
+
+    .jrpg-menu{
+
+        width:100%;
+    }
+
+    .jrpg-panel{
+
+        max-width:none;
+    }
+
+    .embed-card iframe{
+
+        height:420px;
+    }
+
+    .stat-row{
+
+        grid-template-columns:1fr;
+    }
+}

@@ -1,0 +1,33 @@
+:root{
+    --yellow:#FFE796;
+    --panel:#FFF8E0;
+    --accent:#444;
+    --muted:#444;
+    --blue:#8dd9ff;
+    --shadow:#666;
+    --shadow-dark:#414141;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    color:var(--muted);
+    background:#fff;
+}
+
+h1{
+    font-family:'Press Start 2P',cursive;
+}
+
+h2{
+    color:#666;
+}
+
+h3{
+    font-family:'Press Start 2P',cursive;
+    color:var(--muted);
+}
