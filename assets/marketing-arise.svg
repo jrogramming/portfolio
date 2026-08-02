@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg5" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#e6f7ff"/>
+      <stop offset="100%" stop-color="#7cc9ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg5)"/>
+  <rect x="140" y="160" width="920" height="480" rx="32" fill="#fff"/>
+  <path d="M260 550 L440 310 L620 550 L800 310 L980 550" fill="none" stroke="#1f6fb5" stroke-width="32" stroke-linecap="round"/>
+  <text x="600" y="360" fill="#165a91" font-family="'Press Start 2P', sans-serif" font-size="48" text-anchor="middle">Tales of Arise</text>
+  <text x="600" y="430" fill="#165a91" font-family="'Poppins', sans-serif" font-size="24" text-anchor="middle">Countdown campaign preview</text>
+</svg>

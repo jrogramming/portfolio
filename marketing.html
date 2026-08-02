@@ -1,371 +1,88 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Marketing Marketplace | Jennifer Truong</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      text-align: center;
-      background: #ffffff; /* plain white */
-      color: #444;
-    }
 
-    header {
-      padding: 60px 20px;
-      background: #cdeeff; /* blue from skill gradient */
-    }
-.section-blurb {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
-}
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/showcase.css">
 
-.blurb-inner {
-  max-width: 700px;   /* this controls line length */
-  width: 100%;
-  padding: 0 20px;
-  line-height: 1.7;
-  color: #444;
-}
-    h1 {
-      font-family: 'Press Start 2P', cursive;
-      color: #ff4da6;
-      font-size: 1.4rem;
-      margin: 0 0 5px 0;
-    }
 
-    h2 {
-      font-size: 1rem;
-      color: #666;
-      margin: 0;
-    }
-
-    h3 {
-      font-family: 'Press Start 2P', cursive; /* pixel style */
-      color: #ff4da6; /* grey/black from index */
-      font-size: 0.9rem; /* smaller than h1 */
-      margin: 30px 0 20px 0;
-    }
-
-    .menu {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .menu a {
-      text-decoration: none;
-      background: #FFFCF2;
-      border: 3px solid #ffc1e3;
-      border-radius: 10px;
-      padding: 12px 20px;
-      font-family: 'Press Start 2P', cursive;
-      font-size: 0.7rem;
-      color: #ff4da6;
-      box-shadow: 0 4px 0 #ffc1e3;
-      transition: transform 0.1s ease-in-out;
-    }
-
-    .menu a:hover {
-      transform: translateY(2px);
-      box-shadow: 0 2px 0 #ffc1e3;
-    }
-/* --- Dropdown Button --- */
-.toggle-button {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.7rem;
-  background: #fffbe6;
-  border: 3px solid #000;
-  border-radius: 6px;
-  color: #ff4da6;
-  padding: 14px 20px;
-  box-shadow: 4px 4px 0 #000;
-  cursor: pointer;
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
-  margin-bottom: 20px;
-}
-
-.toggle-button:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #000;
-  background: #fff3f8;
-}
-
-/* --- Collapsible PDF Container --- */
-.pdf-container {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 40px;
-}
-
-/* Optional: Add a little fade/slide animation */
-.pdf-container.show {
-  display: flex;
-  animation: dropDown 0.3s ease-out;
-}
-
-@keyframes dropDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-    /* --- RPubs Gamer Button --- */
-.rpubs-button {
-  display: inline-block;
-  margin: 20px auto 40px auto;
-  background: #fffbe6;
-  border: 3px solid #000;
-  border-radius: 6px;
-  padding: 16px 24px;
-  box-shadow: 4px 4px 0 #000;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.7rem;
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
-}
-
-.rpubs-button a {
-  text-decoration: none;
-  color: #ff4da6;
-}
-
-.rpubs-button:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #000;
-  background: #fff3f8; /* subtle pink tint on hover */
-}
-
-    /* --- Newsletter Grid --- */
-    .newsletter-section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      max-width: 600px;
-      margin: 0 auto 40px auto;
-      padding: 0 20px;
-    }
-
-    .newsletter-section .rpubs-button {
-      margin-bottom: 0;
-    }
-
-    @media (max-width: 600px) {
-      .newsletter-section {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    main {
-      padding: 40px 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: calc(100vh - 160px); /* full height minus header/footer */
-    }
-
-    .embed-card {
-      width: 130vw;
-      max-width: 800px;
-      aspect-ratio: 1 / 1; /* square */
-      border-radius: 10px;
-      overflow: hidden;
-      border: 3px solid #a7e0ff; /* matching index blue */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 0 rgba(0,0,0,0.05);
-    }
-
-    .embed-card iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-  </style>
 </head>
+
 <body>
 
-<header>
-  <h1>Marketing Marketplace</h1>
+  <header>
+    <h1>Marketing Marketplace</h1>
 
-  <section class="section-blurb">
-  <div class="blurb-inner">
+    <section class="section-blurb">
+      <div class="blurb-inner">
+        <p>In 2021, I started a fandom artist collaboration — about thirty people — on a whim and a literal coin flip because I wanted to see content that didn’t exist yet. That one decision set off a chain reaction that shaped my life in ways I could have never expected.</p>
+        <p>The next project inspired by my own went on to earn around $14k and even caught the attention of the game’s publisher.</p>
+        <p>Seeing how a community-driven idea could grow, inspire others, and reach the people behind the game itself pushed me into years of social media and entertainment e-commerce work. Marketing became the place where I could blend creativity, data, and community in a way that genuinely impacts people.</p>
+        <p>And it all started because I simply wanted to see something cool happen.</p>
+      </div>
+    </section>
 
-    <p>I got into marketing completely by accident.</p>
+    <div class="menu">
+      <a href="index.html">🏠 Back to Home</a>
+    </div>
+  </header>
 
-    <p>I started a fandom artist collaboration — about thirty people — on a whim and a literal coin flip because I wanted to see content that didn’t exist yet. That one decision set off a chain reaction that shaped my life in ways I could have never expected.</p>
+  <section class="jrpg-wrap" aria-label="Marketing project switcher">
+    <div class="jrpg-menu">
+      <ul id="marketing-menu">
+        <li class="selected" data-key="infinite">Infinite Horizons</li>
+        <li data-key="justanother">Just Another Day</li>
+        <li data-key="arise">Tales of Arise Countdown</li>
+        <li data-key="secret">Secret Recipe</li>
+        <li data-key="makerspace">Weekly Makerspace Newsletters</li>
+      </ul>
+    </div>
 
-    <p>The next project inspired by my own went on to earn around $14k and even caught the attention of the game’s publisher.</p>
+    <div class="jrpg-panel">
+      <div class="panel-header">
+        <div id="panel-title" class="panel-title">Infinite Horizons</div>
+      </div>
 
-    <p>Seeing how a community-driven idea could grow, inspire others, and reach the people behind the game itself pushed me into years of social media and entertainment e-commerce work. Marketing became the place where I could blend creativity, data, and community in a way that genuinely impacts people.</p>
+      <div class="panel-body">
+        <div class="panel-actions">
+          <a id="marketing-link" class="rpubs-button" href="#" target="_blank" rel="noopener noreferrer">Open Link</a>
+        </div>
 
-    <p>And it all started because I simply wanted to see something cool happen.</p></p>
+        <div id="marketing-gallery" class="gallery"></div>
 
-    <p>
+        <div class="stat-row">
+          <span class="stat-key">Usage:</span>
+          <span id="marketing-usage" class="stat-value"></span>
+        </div>
 
-  </div>
-</section>
-  <div class="menu">
-    <a href="index.html">🏠 Back to Home</a>
-  </div>
-</header>
+        <div class="stat-row">
+          <span class="stat-key">Abilities:</span>
+          <span id="marketing-abilities" class="stat-value"></span>
+        </div>
 
-<h3>Infinite Horizons</h3>
+        <div class="stat-row">
+          <span class="stat-key">Equippable By:</span>
+          <span id="marketing-equip" class="stat-value"></span>
+        </div>
 
-<div class="rpubs-button">
-  <a href="https://x.com/talesfanzine?lang=en"_blank">
-    📊 Twitter/X
+        <div class="desc">
+          <p id="marketing-description"></p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  </a>
-</div class="rpubs-button">
-<div>
-</div>
-
-<div class="rpubs-button">
-  <a href="https://www.tumblr.com/talesfanzine" target="_blank">
-    📊 Tumblr
-
-  </a>
-</div class="rpubs-button">
-</div>
-
-
-<h3>Just Another Day</h3>
-
-
-<div class="rpubs-button">
-  <a href="https://x.com/shezdiary?lang=en"_blank">
-    📊 Twitter/X
-
-  </a>
-</div class="rpubs-button">
-<div>
-</div>
-
-<h3>Tales of Arise Countdown</h3>
-
-<div class="rpubs-button">
-  <a href="https://x.com/toarise_cd"_blank">
-    📊 Twitter/X
-
-  </a>
-</div class="rpubs-button">
-<div>
-</div>
-
-<div class="rpubs-button">
-  <a href="https://www.tumblr.com/toarise-countdown" target="_blank">
-    📊 Tumblr
-
-  </a>
-</div class="rpubs-button">
-</div>
-
-
-
-
-<h3>Secret Recipe</h3>
-
-<div class="rpubs-button">
-  <a href="https://x.com/talesfanzine?lang=en"_blank">
-    📊 Twitter/X
-
-  </a>
-</div class="rpubs-button">
-<div>
-</div>
-
-<div class="rpubs-button">
-  <a href="https://www.tumblr.com/talesfanzine" target="_blank">
-    📊 Tumblr
-
-  </a>
-</div class="rpubs-button">
-</div>
-<div>
-</div>
-<div class="rpubs-button">
-  <a href="https://bsky.app/profile/talesfanzine.bsky.social" target="_blank">
-    📊 BlueSky
-
-  </a>
-</div class="rpubs-button">
-</div>
-
-
-
-
-<h3>Weekly Makerspace Newsletters</h3>
-
-<div class="newsletter-section">
-  <div class="rpubs-button">
-    <a href="assets/🥧 Weekly Makerspace Newsletter_ Pi Day Special 🥧.mhtml" target="_blank">
-      🥧 Pi Day Special
-
-    </a>
-  </div>
-
-  <div class="rpubs-button">
-    <a href="assets/🛠️ Weekly Makerspace Newsletter_ Beautify your Buttons 🛠️.mhtml" target="_blank">
-      🛠️ Beautify your Buttons
-
-    </a>
-  </div>
-
-  <div class="rpubs-button">
-    <a href="assets/🛠️ Weekly Makerspace Newsletter_ Makerspace Guest Appearance at...! 🛠️.mhtml" target="_blank">
-      🛠️ Makerspace Guest Appearance
-
-    </a>
-  </div>
-
-  <div class="rpubs-button">
-    <a href="assets/🛠️ Weekly Makerspace Newsletter_ New Equipment, Who Dis_ 🛠️.mhtml" target="_blank">
-      🛠️ New Equipment, Who Dis
-
-    </a>
-  </div>
-</div>
-
-
-
-
-<script>
-  document.querySelectorAll('.toggle-button').forEach(button => {
-    button.addEventListener('click', () => {
-      const nextContainer = button.nextElementSibling;
-
-      // Toggle show class for this specific container
-      nextContainer.classList.toggle('show');
-
-      // Change button text depending on which one was clicked
-      if (nextContainer.querySelector('iframe')?.src.includes('ohmylord.pdf')) {
-        button.textContent = nextContainer.classList.contains('show')
-          ? '📉 My Eyes Oh My God Put it Away'
-          : '🎮 Click for Write Up';
-      } else {
-        button.textContent = nextContainer.classList.contains('show')
-          ? '✨ Alright, Cool!'
-          : '🏆 Let\'s See It';
-      }
-    });
-  });
-</script>
-
-
-
+  <script src="marketing.js" defer></script>
 </body>
-
 
 </html>

@@ -161,88 +161,179 @@ header {
 
 
 
-    .skills {
-          background: #fffafb;
-
-    }
-    h3 {
-      font-family: 'Press Start 2P', cursive;
-      font-size: 1rem;
-      margin-bottom: 30px;
-    }
-
-    .skills-table {
-      max-width: 650px;
-      margin: 0 auto;
-      text-align: left;
-      font-size: 0.9rem;
-    }
-
-    .skill {
-      margin-bottom: 20px;
-    }
-
-    .skill-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }
-
-    .skill-label a {
-      text-decoration: none;
-      color: var(#000);
-      font-weight: 600;
-    }
-    .skill-label a:hover {
-      color: var(#000);
-    }
-
-    .lvl {
-      font-family: 'Press Start 2P', cursive;
-      font-size: 0.6rem;
-      color: var(#000);
-    }
-
-.skill-bar {
-  background: #FFE796;
-  border: 2px solid #000;  /* black outline */
-  border-radius: 6px;
-  height: 24px;
-  position: relative;
+.skills {
+  background: #fffafb;
 }
 
+.skill-map-shell {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 24px;
+  align-items: start;
+}
 
-.skill-fill {
+.skill-map-canvas {
+  position: relative;
+  min-height: 480px;
+  border: 4px solid #000;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #fefbf4 0%, #f2f7ff 100%);
+  overflow: hidden;
+  box-shadow: 6px 6px 0 rgba(73, 73, 73, 0.3);
+}
+
+.skill-map-canvas::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.skill-connectors {
+  position: absolute;
+  inset: 0;
+  width: 100%;
   height: 100%;
-  border-radius: 2px;
-  width: 0;
-  transition: width 1s ease-out;
-  image-rendering: pixelated;
-  background-image: linear-gradient(
-    to right,
-    #ffd7e8 0%,    /* lightest pink */
-    #ffd7e8 10%,   /* block 1 */
-    #ffc2de 10%, 
-    #ffc2de 20%,   /* block 2 */
-    #ffadd3 20%, 
-    #ffadd3 30%,   /* block 3 */
-    #ffa0d4 30%, 
-    #ffa0d4 40%,   /* block 4 */
-    #ff93d3 40%, 
-    #ff93d3 50%,   /* block 5 */
-    #f6a7e4 50%, 
-    #f6a7e4 60%,   /* block 6 */
-    #e4b7ef 60%, 
-    #e4b7ef 70%,   /* block 7 */
-    #d1c7f6 70%, 
-    #d1c7f6 80%,   /* block 8 */
-    #bcd8fa 80%, 
-    #bcd8fa 90%,   /* block 9 */
-    #a7e0ff 90%, 
-    #a7e0ff 100%   /* block 10 (baby blue) */
-  );
-  background-size: 100% 100%;
+  pointer-events: none;
+}
+
+.skill-connector {
+  stroke: #5d5d5d;
+  stroke-width: 2;
+  stroke-dasharray: 7 6;
+  stroke-dashoffset: 220;
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+.skill-connector.is-drawn {
+  stroke-dashoffset: 0;
+}
+
+.skill-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 8px 12px;
+  border: 3px solid #000;
+  border-radius: 999px;
+  background: #fffbe6;
+  color: #303030;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.55rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 rgba(73, 73, 73, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.skill-node:hover {
+  transform: translate(-50%, -50%) translateY(-1px);
+  box-shadow: 4px 4px 0 rgba(73, 73, 73, 0.35);
+}
+
+.skill-node.is-active {
+  background: #FFE796;
+  box-shadow: 4px 4px 0 rgba(73, 73, 73, 0.35);
+}
+
+.skill-node.is-pressed {
+  transform: translate(-50%, -50%) translateY(2px);
+  box-shadow: 2px 2px 0 rgba(73, 73, 73, 0.35);
+}
+
+.skill-node-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 999px;
+  border: 2px solid #000;
+  background: #fff;
+  font-size: 0.45rem;
+}
+
+.skill-info-panel {
+  border: 4px solid #000;
+  border-radius: 12px;
+  background: #FFFCF2;
+  padding: 20px;
+  box-shadow: 6px 6px 0 rgba(73, 73, 73, 0.3);
+}
+
+.skill-panel-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.skill-panel-years {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.6rem;
+  color: #5f5f5f;
+  margin-bottom: 12px;
+}
+
+.skill-panel-description {
+  margin: 0 0 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.skill-panel-section {
+  margin-top: 14px;
+}
+
+.skill-panel-section h4 {
+  margin: 0 0 8px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.65rem;
+}
+
+.skill-panel-section ul {
+  margin: 0;
+  padding-left: 16px;
+  line-height: 1.6;
+}
+
+.skill-panel-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.skill-panel-links a {
+  display: inline-block;
+  text-decoration: none;
+  color: #2f2f2f;
+  border: 2px solid #000;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.55rem;
+  background: #fff;
+}
+
+.skills-intro {
+  margin: 0 auto 24px;
+  max-width: 700px;
+  color: #5d5d5d;
+}
+
+@media (max-width: 900px) {
+  .skill-map-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-info-panel {
+    order: -1;
+  }
 }
 
 
@@ -607,6 +698,34 @@ header {
 
   <section id="skills" class="skills">
     <h3>SKILLS</h3>
+    <p class="skills-intro">Tap a node to open a compact skill window and explore the toolkit behind the portfolio.</p>
+    <div class="skill-map-shell">
+      <div id="skill-map-canvas" class="skill-map-canvas" aria-label="Interactive skill map"></div>
+      <aside id="skill-info-panel" class="skill-info-panel">
+        <h4 class="skill-panel-title">Python</h4>
+        <div class="skill-panel-years">4+ years</div>
+        <p class="skill-panel-description">Primary language for analysis, automation, and experimentation.</p>
+
+        <div class="skill-panel-section">
+          <h4>Featured work</h4>
+          <ul class="skill-panel-projects"></ul>
+        </div>
+
+        <div class="skill-panel-section">
+          <h4>Related tools</h4>
+          <ul class="skill-panel-related"></ul>
+        </div>
+
+        <div class="skill-panel-section">
+          <h4>Jump to</h4>
+          <div class="skill-panel-links"></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="skills-old" class="skills" style="display:none;">
+    <h3>SKILLS</h3>
     <div class="skills-table">
       <div class="skill">
         <div class="skill-header">
@@ -827,6 +946,7 @@ header {
     <p>© 2025 [Jennifer Truong] · Made with 🍵 &amp; ☕</p>
   </footer>
 
+<script src="skill-tree.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   // Target the skills section

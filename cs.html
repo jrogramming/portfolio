@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computer Science Showcase | Jennifer Truong</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/showcase.css">
+</head>
+
+<body>
+  <header>
+    <h1>Computer Science Showcase</h1>
+
+    <section class="section-blurb">
+      <div class="blurb-inner">
+        <p>This page is being set up to mirror the same showcase structure as the other portfolio pages.</p>
+        <p>Each project will have a switchable panel, preview images, and a link to the relevant work.</p>
+      </div>
+    </section>
+
+    <div class="menu">
+      <a href="index.html">🏠 Back to Home</a>
+    </div>
+  </header>
+
+  <section class="jrpg-wrap" aria-label="Computer science project switcher">
+    <div class="jrpg-menu">
+      <ul id="cs-menu">
+        <li class="selected" data-key="systems">Systems & Algorithms</li>
+        <li data-key="web">Web & Software</li>
+        <li data-key="research">Research & Analysis</li>
+      </ul>
+    </div>
+
+    <div class="jrpg-panel">
+      <div class="panel-header">
+        <div id="panel-title" class="panel-title">Systems & Algorithms</div>
+      </div>
+
+      <div class="panel-body">
+        <div class="panel-actions">
+          <a id="cs-link" class="rpubs-button" href="#" target="_blank" rel="noopener noreferrer">Open Project</a>
+        </div>
+
+        <div id="cs-gallery" class="gallery"></div>
+
+        <div class="stat-row">
+          <span class="stat-key">Usage:</span>
+          <span id="cs-usage" class="stat-value"></span>
+        </div>
+
+        <div class="stat-row">
+          <span class="stat-key">Abilities:</span>
+          <span id="cs-abilities" class="stat-value"></span>
+        </div>
+
+        <div class="stat-row">
+          <span class="stat-key">Equippable By:</span>
+          <span id="cs-equip" class="stat-value"></span>
+        </div>
+
+        <div class="desc">
+          <p id="cs-description"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="cs.js" defer></script>
+</body>
+</html>

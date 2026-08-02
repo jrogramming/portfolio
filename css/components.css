@@ -139,7 +139,7 @@
 .jrpg-menu li{
 
     font-family:'Press Start 2P',cursive;
-    font-size:.82rem;
+    font-size:.72rem;
 
     background:#FFF8E0;
 
@@ -199,6 +199,7 @@
     padding:18px;
 }
 
+.panel-title,
 #panel-title{
 
     font-family:'Press Start 2P',cursive;

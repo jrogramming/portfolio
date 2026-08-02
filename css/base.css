@@ -25,11 +25,22 @@ h1{
     font-size:1.6rem;
     margin:0;
 }
+
 h2{
     color:#666;
 }
 
+h3,
+.panel-title,
+#panel-title,
+.stat-key,
+.jrpg-menu li,
+.menu a,
+.toggle-button,
+.rpubs-button{
+    font-family:'Press Start 2P', cursive;
+}
+
 h3{
-    font-family:'Press Start 2P',cursive;
     color:var(--muted);
 }
