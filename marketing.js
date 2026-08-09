@@ -12,9 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description:
         "Infinite Horizons was a social media and newsletter campaign built to grow a collective fandom project. I developed campaign messaging, coordinated creator contributions, and designed visual storytelling that drove engagement across multiple platforms.",
       link: "https://x.com/talesfanzine?lang=en",
-      gallery: [
-        "assets/marketing-infinite.svg"
-      ]
+      gallery: []
     },
     justanother: {
       title: "Just Another Day",
@@ -28,9 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description:
         "Just Another Day was a marketing refresh for a serialized project, with a focus on cohesive visual identity, social storytelling, and audience retention. I created content previews and teaser assets to keep the community excited and informed.",
       link: "https://x.com/shezdiary?lang=en",
-      gallery: [
-        "assets/marketing-justanother.svg"
-      ]
+      gallery: []
     },
     arise: {
       title: "Tales of Arise Countdown",
@@ -44,9 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description:
         "This campaign featured countdown visuals and social promotions crafted to build anticipation before a release. I designed shareable assets and coordinated schedule timing to amplify fan excitement.",
       link: "https://x.com/toarise_cd",
-      gallery: [
-        "assets/marketing-arise.svg"
-      ]
+      gallery: []
     },
     secret: {
       title: "Secret Recipe",
@@ -60,9 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description:
         "Secret Recipe focused on building audience intrigue and participation through a collaborative social campaign. The work centered on mood, pacing, and a narrative hook that made each post feel like part of a larger reveal.",
       link: "https://www.tumblr.com/talesfanzine",
-      gallery: [
-        "assets/marketing-secret.svg"
-      ]
+      gallery: []
     },
     makerspace: {
       title: "Weekly Makerspace Newsletters",
@@ -76,9 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description:
         "This ongoing newsletter series spotlighted makerspace events, equipment updates, guest appearances, and featured projects. The content was designed to keep the community informed while building excitement around monthly initiatives.",
       link: "https://x.com/talesfanzine?lang=en",
-      gallery: [
-        "assets/marketing-makerspace.svg"
-      ]
+      gallery: []
     }
   };
 
