@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('skill-map-canvas');
+  const categoriesContainer = container?.querySelector('.skill-categories');
+  const skillList = document.getElementById('skill-list');
   const panel = document.getElementById('skill-info-panel');
 
-  if (!container || !panel) return;
+  if (!container || !categoriesContainer || !skillList || !panel) return;
 
   const skillMapData = {
     nodes: [
@@ -305,50 +307,76 @@ document.addEventListener('DOMContentLoaded', () => {
         related: ['Analytics', 'Tableau'],
         links: [],
         years: '1+ years'
+      },
+      {
+        id: 'communication',
+        label: 'Communication',
+        icon: 'CO',
+        description: 'Clear communication developed through teaching, customer service, and campaign work.',
+        projects: ['Teaching Unity and PICO-8 to 50+ students', 'Customer service and community communications'],
+        related: [],
+        links: [],
+        years: 'Core strength'
+      },
+      {
+        id: 'collaboration',
+        label: 'Collaboration',
+        icon: 'CL',
+        description: 'Working with creators, students, and cross-functional teams to move projects forward.',
+        projects: ['Coordinating creator contributions', 'Supporting students during office hours'],
+        related: [],
+        links: [],
+        years: 'Core strength'
+      },
+      {
+        id: 'problem-solving',
+        label: 'Problem Solving',
+        icon: 'PS',
+        description: 'Breaking down challenges and finding practical solutions through analysis and iteration.',
+        projects: ['Game design and development instruction', 'Data analysis and experimentation'],
+        related: [],
+        links: [],
+        years: 'Core strength'
+      },
+      {
+        id: 'leadership',
+        label: 'Leadership',
+        icon: 'L',
+        description: 'Guiding learning and coordinating creative work toward shared goals.',
+        projects: ['Teaching game development to 50+ students', 'Leading creator-driven campaign work'],
+        related: [],
+        links: [],
+        years: 'Core strength'
       }
-    ],
-    connections: [
-      ['programming', 'python'],
-      ['programming', 'r'],
-      ['programming', 'sql'],
-      ['programming', 'javascript'],
-      ['python', 'numpy'],
-      ['python', 'pandas'],
-      ['python', 'scipy'],
-      ['python', 'matplotlib'],
-      ['python', 'sklearn'],
-      ['python', 'pytorch'],
-      ['r', 'tidyverse'],
-      ['tidyverse', 'dplyr'],
-      ['tidyverse', 'ggplot2'],
-      ['tidyverse', 'tidyr'],
-      ['javascript', 'html'],
-      ['javascript', 'css'],
-      ['javascript', 'react'],
-      ['analytics', 'powerbi'],
-      ['analytics', 'tableau'],
-      ['analytics', 'looker'],
-      ['powerbi', 'dax'],
-      ['powerbi', 'powerquery'],
-      ['powerquery', 'mlang'],
-      ['sql', 'analytics']
     ]
   };
 
   const nodeMap = new Map(skillMapData.nodes.map((node) => [node.id, node]));
+  const categories = [
+    {
+      label: 'Languages',
+      skills: ['python', 'r', 'sql', 'javascript', 'html', 'css', 'react', 'dax', 'mlang']
+    },
+    {
+      label: 'Statistics',
+      skills: ['numpy', 'pandas', 'scipy', 'matplotlib', 'tidyverse', 'dplyr', 'ggplot2', 'tidyr', 'analytics', 'powerbi', 'powerquery', 'tableau', 'looker']
+    },
+    {
+      label: 'Machine Learning',
+      skills: ['sklearn', 'pytorch']
+    },
+    {
+      label: 'Soft Skills',
+      skills: ['communication', 'collaboration', 'problem-solving', 'leadership']
+    }
+  ];
 
   function createNode(node) {
     const button = document.createElement('button');
     button.className = 'skill-node';
     button.type = 'button';
     button.dataset.id = node.id;
-    button.innerHTML = `
-      <span class="skill-node-icon">${node.icon}</span>
-      <span class="skill-node-label">${node.label}</span>
-    `;
-
-    button.style.left = `${node.x}%`;
-    button.style.top = `${node.y}%`;
+    button.textContent = node.label;
 
     button.addEventListener('click', () => {
       button.classList.add('is-pressed');
@@ -359,34 +387,25 @@ document.addEventListener('DOMContentLoaded', () => {
     return button;
   }
 
-  function renderConnections() {
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.className = 'skill-connectors';
-
-    skillMapData.connections.forEach(([fromId, toId]) => {
-      const from = nodeMap.get(fromId);
-      const to = nodeMap.get(toId);
-      if (!from || !to) return;
-
-      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-      const fromX = (from.x / 100) * 100;
-      const fromY = (from.y / 100) * 100;
-      const toX = (to.x / 100) * 100;
-      const toY = (to.y / 100) * 100;
-
-      line.setAttribute('x1', `${fromX}%`);
-      line.setAttribute('y1', `${fromY}%`);
-      line.setAttribute('x2', `${toX}%`);
-      line.setAttribute('y2', `${toY}%`);
-      line.classList.add('skill-connector');
-      svg.appendChild(line);
+  function showCategory(category, categoryButton) {
+    categoriesContainer.querySelectorAll('.skill-category').forEach((button) => {
+      const isActive = button === categoryButton;
+      button.classList.toggle('is-active', isActive);
+      button.setAttribute('aria-expanded', String(isActive));
     });
 
-    container.prepend(svg);
-    requestAnimationFrame(() => {
-      svg.querySelectorAll('.skill-connector').forEach((line, index) => {
-        requestAnimationFrame(() => line.classList.add('is-drawn'));
-      });
+    skillList.textContent = '';
+    category.skills.forEach((id) => {
+      const node = nodeMap.get(id);
+      if (node) skillList.appendChild(createNode(node));
+    });
+
+    panel.querySelector('.skill-panel-title').textContent = 'Choose a skill';
+    panel.querySelector('.skill-panel-years').textContent = '';
+    panel.querySelector('.skill-panel-years').hidden = true;
+    panel.querySelector('.skill-panel-description').textContent = 'Select a skill to see more details.';
+    panel.querySelectorAll('.skill-panel-section').forEach((section) => {
+      section.hidden = true;
     });
   }
 
@@ -428,9 +447,23 @@ document.addEventListener('DOMContentLoaded', () => {
       anchor.textContent = link.label;
       linksList.appendChild(anchor);
     });
+
+    panel.querySelectorAll('.skill-panel-section').forEach((section, index) => {
+      const content = [node.projects, node.related, node.links][index];
+      section.hidden = content.length === 0;
+    });
+
+    panel.querySelector('.skill-panel-years').hidden = !node.years;
   }
 
-  renderConnections();
-  skillMapData.nodes.forEach((node) => container.appendChild(createNode(node)));
-  selectNode('python');
+  categories.forEach((category) => {
+    const button = document.createElement('button');
+    button.className = 'skill-category';
+    button.type = 'button';
+    button.textContent = category.label;
+    button.setAttribute('aria-controls', 'skill-list');
+    button.setAttribute('aria-expanded', 'false');
+    button.addEventListener('click', () => showCategory(category, button));
+    categoriesContainer.appendChild(button);
+  });
 });

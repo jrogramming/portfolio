@@ -6,6 +6,7 @@
   <title>[Jennifer Truong] | Statistics / Data Science · Games · Marketing</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -30,19 +31,29 @@
     header {
     padding: 180px 80px 180px;    }
 
-    h1 {
-      font-family: 'Press Start 2P', cursive;
-      color: white;
-      font-size: 3rem;
-      margin-bottom: 18px;
-    }
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 36px;
+  text-shadow:
+    -3px -3px 0 black,
+     0px -3px 0 black,
+     3px -3px 0 black,
+    -3px  0px 0 black,
+     3px  0px 0 black,
+    -3px  3px 0 black,
+     0px  3px 0 black,
+     3px  3px 0 black;
+}
 
-    h2 {
-    font-family: 'Poppins';
-    color: hsl(0, 0%, 40%);
-      font-size: 1.6rem;
-      margin-top: 0;
-    }
+h2 {
+  font-family: 'Oxanium';
+  color: rgb(0, 0, 0);
+  font-size: 1.2rem;
+  margin-top: 0;
+
+}
 
     .menu {
       margin-top: 60px;
@@ -52,10 +63,14 @@
       gap: 20px;
     }
 header {
+  width: 100%;
+  aspect-ratio: 16 / 5;
   padding: 50px 60px 60px;
-  background: #8dd9ff; 
+  background-image: url("assets/header.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
 }
-
     .menu a {
       text-decoration: none;
       background: #FFFCF2;
@@ -152,7 +167,7 @@ header {
 .stat-row { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
 .stat-label { width: 96px; font-family: 'Press Start 2P', cursive; font-size: 0.75rem; color: S#000; }
 .stat-bar { background: #FFE796; border: 2px solid #000; border-radius: 4px; height: 20px; width: 420px; position: relative; overflow: hidden; }
-.stat-fill { height: 100%; width: 0; transition: width 1s ease-out; background: linear-gradient(90deg, #ffc1e3, #a7e0ff); }
+.stat-fill { height: 100%; width: 0; transition: width 1s ease-out; background: #50aee8; }
 .stat-numeric { font-family: 'Press Start 2P', sans-serif; font-size: .8rem; margin-left: 12px; color: #333; }
 
 .equipment, .skills-grid { margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap; }
@@ -174,65 +189,61 @@ header {
   align-items: start;
 }
 
-.skill-map-canvas {
-  position: relative;
-  min-height: 480px;
+.skill-category-browser {
+  min-height: 240px;
   border: 4px solid #000;
   border-radius: 12px;
   background: linear-gradient(180deg, #fefbf4 0%, #f2f7ff 100%);
-  overflow: hidden;
+  padding: 24px;
   box-shadow: 6px 6px 0 rgba(73, 73, 73, 0.3);
 }
 
-.skill-map-canvas::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
-  background-size: 24px 24px;
-  pointer-events: none;
+.skill-categories {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
 }
 
-.skill-connectors {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+.skill-category {
+  min-height: 58px;
+  padding: 12px;
+  border: 3px solid #000;
+  border-radius: 8px;
+  background: #fffbe6;
+  color: #303030;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.65rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 rgba(73, 73, 73, 0.35);
 }
 
-.skill-connector {
-  stroke: #5d5d5d;
-  stroke-width: 2;
-  stroke-dasharray: 7 6;
-  stroke-dashoffset: 220;
-  transition: stroke-dashoffset 0.6s ease;
+.skill-category:hover,
+.skill-category.is-active {
+  background: #FFE796;
 }
 
-.skill-connector.is-drawn {
-  stroke-dashoffset: 0;
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
 }
 
 .skill-node {
-  position: absolute;
-  transform: translate(-50%, -50%);
   padding: 8px 12px;
   border: 3px solid #000;
-  border-radius: 999px;
+  border-radius: 8px;
   background: #fffbe6;
   color: #303030;
   font-family: 'Press Start 2P', cursive;
   font-size: 0.55rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
   cursor: pointer;
   box-shadow: 3px 3px 0 rgba(73, 73, 73, 0.35);
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
 .skill-node:hover {
-  transform: translate(-50%, -50%) translateY(-1px);
+  transform: translateY(-1px);
   box-shadow: 4px 4px 0 rgba(73, 73, 73, 0.35);
 }
 
@@ -242,20 +253,8 @@ header {
 }
 
 .skill-node.is-pressed {
-  transform: translate(-50%, -50%) translateY(2px);
+  transform: translateY(2px);
   box-shadow: 2px 2px 0 rgba(73, 73, 73, 0.35);
-}
-
-.skill-node-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 1.4rem;
-  height: 1.4rem;
-  border-radius: 999px;
-  border: 2px solid #000;
-  background: #fff;
-  font-size: 0.45rem;
 }
 
 .skill-info-panel {
@@ -333,6 +332,12 @@ header {
 
   .skill-info-panel {
     order: -1;
+  }
+}
+
+@media (max-width: 520px) {
+  .skill-categories {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -478,7 +483,6 @@ header {
       <a href="#about">▶ START</a>
       <a href="#projects">💾 PROJECTS</a>
       <a href="#skills">📊 SKILLS</a>
-      <a href="#RESUME">💌 RESUME</a>
       
     </div>
   </header>
@@ -698,25 +702,28 @@ header {
 
   <section id="skills" class="skills">
     <h3>SKILLS</h3>
-    <p class="skills-intro">Tap a node to open a compact skill window and explore the toolkit behind the portfolio.</p>
+    <p class="skills-intro">Choose a category to explore the skills in each area.</p>
     <div class="skill-map-shell">
-      <div id="skill-map-canvas" class="skill-map-canvas" aria-label="Interactive skill map"></div>
+      <div id="skill-map-canvas" class="skill-category-browser" aria-label="Interactive skills browser">
+        <div class="skill-categories" role="group" aria-label="Skill categories"></div>
+        <div id="skill-list" class="skill-list" aria-live="polite"></div>
+      </div>
       <aside id="skill-info-panel" class="skill-info-panel">
-        <h4 class="skill-panel-title">Python</h4>
-        <div class="skill-panel-years">4+ years</div>
-        <p class="skill-panel-description">Primary language for analysis, automation, and experimentation.</p>
+        <h4 class="skill-panel-title">Choose a skill</h4>
+        <div class="skill-panel-years"></div>
+        <p class="skill-panel-description">Select a category, then choose a skill to see more details.</p>
 
-        <div class="skill-panel-section">
+        <div class="skill-panel-section" hidden>
           <h4>Featured work</h4>
           <ul class="skill-panel-projects"></ul>
         </div>
 
-        <div class="skill-panel-section">
+        <div class="skill-panel-section" hidden>
           <h4>Related tools</h4>
           <ul class="skill-panel-related"></ul>
         </div>
 
-        <div class="skill-panel-section">
+        <div class="skill-panel-section" hidden>
           <h4>Jump to</h4>
           <div class="skill-panel-links"></div>
         </div>
