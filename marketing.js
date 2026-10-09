@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
       equip: "Newsletter creator",
       description:
         "This ongoing newsletter series spotlighted makerspace events, equipment updates, guest appearances, and featured projects. The content was designed to keep the community informed while building excitement around monthly initiatives.",
-      link: "https://x.com/talesfanzine?lang=en",
+      link: "https://scholarslab.lib.virginia.edu/makerspace//",
       gallery: []
     }
   };
