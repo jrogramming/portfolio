@@ -179,6 +179,18 @@ h1{
     object-fit:cover;
 
 }
+
+/* Computer Science project preview */
+.cs-preview .gallery-card{
+    display:block;
+    width:min(100%,480px);
+}
+
+.cs-preview .gallery-card img{
+    width:100%;
+    max-width:none;
+    height:auto;
+}
 /* ---------- JRPG Game Titles ---------- */
 
 #game-title,

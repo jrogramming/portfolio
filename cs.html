@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,65 +14,59 @@
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/showcase.css">
 </head>
-
 <body>
   <header>
     <h1>Computer Science Showcase</h1>
-
     <section class="section-blurb">
       <div class="blurb-inner">
-        <p>This page is being set up to mirror the same showcase structure as the other portfolio pages.</p>
-        <p>Each project will have a switchable panel, preview images, and a link to the relevant work.</p>
+        <p>My computer science work brings together programming, data, and interactive design.</p>
+        <p>When out and about on campus I was often pointed out by which of my three jobs at the time they recognize me from whether it’s “the computer game design TA who put my favorite game into the review”, “the Scholars’ Lab makerspace boss that designed a custom embroidery vector for me while operating a laser cutter and baking somebody’s clay dog”, or best yet: the literal face of the CS program brochure handed out to any and everyone at open house. 
+
+<p>Pretty big accomplishment for an applied statistics major.</p>
+
       </div>
     </section>
-
     <div class="menu">
       <a href="index.html">🏠 Back to Home</a>
     </div>
   </header>
 
-  <section class="jrpg-wrap" aria-label="Computer science project switcher">
-    <div class="jrpg-menu">
-      <ul id="cs-menu">
-        <li class="selected" data-key="systems">Systems & Algorithms</li>
-        <li data-key="web">Web & Software</li>
-        <li data-key="research">Research & Analysis</li>
-      </ul>
-    </div>
+  <main>
+    <section class="jrpg-wrap" aria-label="Computer science project switcher">
+      <nav class="jrpg-menu" aria-label="Computer science collections">
+        <ul id="cs-menu">
+          <li class="selected" data-key="gradio" tabindex="0">Gradio</li>
+        </ul>
+      </nav>
 
-    <div class="jrpg-panel">
-      <div class="panel-header">
-        <div id="panel-title" class="panel-title">Systems & Algorithms</div>
-      </div>
-
-      <div class="panel-body">
-        <div class="panel-actions">
-          <a id="cs-link" class="rpubs-button" href="#" target="_blank" rel="noopener noreferrer">Open Project</a>
+      <article class="jrpg-panel">
+        <div class="panel-header">
+          <div id="cs-title" class="panel-title">Gradio</div>
         </div>
-
-        <div id="cs-gallery" class="gallery"></div>
-
-        <div class="stat-row">
-          <span class="stat-key">Usage:</span>
-          <span id="cs-usage" class="stat-value"></span>
+        <div class="panel-body">
+          <div class="panel-actions">
+            <a id="cs-link" class="rpubs-button" href="https://github.com/jrogramming/Practice-Porfolio/tree/main/Gradio" target="_blank" rel="noopener noreferrer">View Projects on GitHub</a>
+          </div>
+          <div id="cs-gallery" class="gallery cs-preview" hidden></div>
+          <div class="stat-row">
+            <span class="stat-key">Focus:</span>
+            <span id="cs-usage" class="stat-value"></span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-key">Tools:</span>
+            <span id="cs-abilities" class="stat-value"></span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-key">Role:</span>
+            <span id="cs-equip" class="stat-value"></span>
+          </div>
+          <div class="desc">
+            <p id="cs-description"></p>
+          </div>
         </div>
-
-        <div class="stat-row">
-          <span class="stat-key">Abilities:</span>
-          <span id="cs-abilities" class="stat-value"></span>
-        </div>
-
-        <div class="stat-row">
-          <span class="stat-key">Equippable By:</span>
-          <span id="cs-equip" class="stat-value"></span>
-        </div>
-
-        <div class="desc">
-          <p id="cs-description"></p>
-        </div>
-      </div>
-    </div>
-  </section>
+      </article>
+    </section>
+  </main>
 
   <script src="cs.js" defer></script>
 </body>
