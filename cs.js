@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       equip: "Jennifer Truong",
       description: "A web scraping project that collects cosmetic brand color palettes from Brand Color Code and exports the results into a structured CSV dataset. Each brand can have between 1–8 associated colors, with corresponding color specifications and industry classifications.",
       link: "https://github.com/jrogramming/Beauty-Brands",
-      preview: "assets/brand-color-scraper-preview.png"
+      preview: "assets/datasetpreview.png"
     },
     "purple-detector": {
       title: "Purple Detector",
