@@ -5,8 +5,9 @@ const data = {
 waste:{
     title:"Waste Colonialism RPubs Paper",
     usage:"Applied research storytelling with real data",
-    abilities:["R","Data cleaning","Visualization","Statistical analysis"],
-    equip:"Primary author / sole creator",
+    abilities:["R","ggplot2","RPubs"],
+    skills:["Data cleaning","Statistical analysis","Data visualization","Research communication"],
+    equip:"Jennifer Truong",
     description:
     "This project analyzes patterns of waste distribution in relation to colonial structures using real datasets. I cleaned and organized messy data, created clear visuals, and connected statistical results to social context. The work blends technical analysis with narrative explanation so readers can understand both the numbers and their implications.",
     link:"https://rpubs.com/dszCSadssad/1252371",
@@ -17,8 +18,9 @@ waste:{
 penguin:{
     title:"Penguin Visualizer",
     usage:"Interactive data exploration tool",
-    abilities:["Shiny","R","Interactive controls","Data filtering"],
-    equip:"Integrator / project enhancer",
+    abilities:["R","Shiny"],
+    skills:["Interactive data exploration","Data filtering","Data visualization"],
+    equip:"Jennifer Truong (integration and project enhancement)",
     description:
     "This interactive Shiny app lets users explore penguin data dynamically. Viewers can switch variables and compare species in real time.",
     link:"https://serega29rus.shinyapps.io/PengApp/",
@@ -29,8 +31,9 @@ penguin:{
 worst:{
     title:"Worst Plot Contest Entry",
     usage:"Creative statistical visualization challenge",
-    abilities:["ggplot2","Aesthetic experimentation","Playful data display"],
-    equip:"Creator / contest participant",
+    abilities:["R","ggplot2"],
+    skills:["Visual experimentation","Design critique","Statistical communication"],
+    equip:"Jennifer Truong",
     description:
     "This project intentionally creates a bad plot for a data visualization contest to explore what makes graphics ineffective.",
     link:"assets/ohmylord.pdf",
@@ -41,8 +44,9 @@ worst:{
 revision:{
     title:"Plot Revision Process",
     usage:"Step-by-step plot improvement walkthrough",
-    abilities:["Iterative design","R plotting functions","Critique-based refinement"],
-    equip:"Sole creator",
+    abilities:["R","ggplot2"],
+    skills:["Iterative design","Critique-based refinement","Visual communication"],
+    equip:"Jennifer Truong",
     description:
     "This project documents how a messy initial plot evolves into a clearer one through iterative design changes.",
     link:"assets/bestplot.html",
@@ -53,8 +57,9 @@ revision:{
 isam:{
     title:"ISAM Project",
     usage:"ISAM research paper and presentation",
-    abilities:["Research","Data analysis","Presentation"],
-    equip:"Sole creator / collaborator",
+    abilities:["R","Presentation software"],
+    skills:["Research","Data analysis","Presentation development"],
+    equip:"Jennifer Truong and Jordan Phan",
     description:
     "ISAM project materials including paper and presentation slides.",
     link:"assets/Phan_Truong.pdf",
@@ -77,6 +82,7 @@ const menuEls=document.querySelectorAll("#menu-list li");
 const title=document.getElementById("panel-title");
 const usage=document.getElementById("usage");
 const abilities=document.getElementById("abilities");
+const skills=document.getElementById("skills");
 const equip=document.getElementById("equip");
 const description=document.getElementById("description");
 
@@ -98,6 +104,8 @@ function updatePanel(key){
     usage.textContent=item.usage;
 
     abilities.textContent=item.abilities.join(" • ");
+
+    skills.textContent=(item.skills || []).join(" • ");
 
     equip.textContent=item.equip;
 

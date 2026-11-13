@@ -10,14 +10,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
             abilities: [
                 "Unity",
-                "C# scripting",
+                "C#"
+            ],
+
+            skills: [
                 "Combat design",
+                "Story writing",
                 "Character art",
                 "Background art"
             ],
 
             equip:
-            "Credits: Mira Khan (Puzzle Room, Puzzle, Visual Novel & SFX, Game Progression); Jennifer Truong (Combat Room, Story, Character Art, Background Art); Samantha Verdi (Combat & SFX, Character Sprites & Animations, Music); Saniyah Smith (Combat)",
+            "Credits: Jennifer Truong (Combat Room, Story, Character Art, Background Art); Mira Khan (Puzzle Room, Puzzle, Visual Novel & SFX, Game Progression); Samantha Verdi (Combat & SFX, Character Sprites & Animations, Music); Saniyah Smith (Combat)",
 
 
             id:
@@ -53,13 +57,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             abilities:[
-                "Unity",
-                "Collaborative game development"
+                "Unity"
+            ],
+
+            skills:[
+                "Game design",
+                "Narrative design",
+                "Collaborative development"
             ],
 
 
             equip:
-            "Team — programming/design, story, art, and music roles",
+            "Jennifer Truong and the Fatal Flower team (programming, design, story, art, and music)",
 
 
             id:
@@ -103,15 +112,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             abilities:[
-                "PICO-8",
+                "PICO-8"
+            ],
+
+            skills:[
                 "Sprite art",
                 "Music composition",
-                "Game logic"
+                "Game logic",
+                "Puzzle design"
             ],
 
 
             equip:
-            "Sole creator",
+            "Jennifer Truong",
 
 
             id:
@@ -161,6 +174,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         abilities:
         document.getElementById("game-abilities"),
+
+
+        skills:
+        document.getElementById("game-skills"),
 
 
         equip:
@@ -268,6 +285,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         panel.abilities.textContent =
         item.abilities.join(" • ");
+
+
+        panel.skills.textContent =
+        item.skills.join(" • ");
 
 
 

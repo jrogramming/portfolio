@@ -4,11 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Infinite Horizons",
       usage: "Community-driven campaign strategy for fandom growth",
       abilities: [
-        "Social media planning",
-        "Content design",
-        "Influencer partnerships"
+        "Social media",
+        "Newsletter publishing"
       ],
-      equip: "Campaign lead / copywriter",
+      skills: [
+        "Campaign strategy",
+        "Creator coordination",
+        "Content design"
+      ],
+      equip: "Jennifer Truong and contributing artists",
       description:
         "Infinite Horizons was a social media and newsletter campaign built to grow a collective fandom project. I developed campaign messaging, coordinated creator contributions, and designed visual storytelling that drove engagement across multiple platforms.",
       link: "https://x.com/talesfanzine?lang=en",
@@ -18,11 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Just Another Day",
       usage: "Narrative branding and community engagement content",
       abilities: [
-        "Brand voice",
-        "Campaign assets",
-        "Audience research"
+        "Social media",
+        "Visual content tools"
       ],
-      equip: "Creative strategist",
+      skills: ["Brand voice", "Audience research", "Campaign content development"],
+      equip: "Jennifer Truong",
       description:
         "Just Another Day was a marketing refresh for a serialized project, with a focus on cohesive visual identity, social storytelling, and audience retention. I created content previews and teaser assets to keep the community excited and informed.",
       link: "https://x.com/shezdiary?lang=en",
@@ -32,11 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Tales of Arise Countdown",
       usage: "Countdown campaign design for fan excitement",
       abilities: [
-        "Visual countdowns",
-        "Launch coordination",
-        "Fan activation"
+        "Social media",
+        "Visual content tools"
       ],
-      equip: "Campaign designer",
+      skills: ["Campaign planning", "Launch coordination", "Fan activation"],
+      equip: "Jennifer Truong",
       description:
         "This campaign featured countdown visuals and social promotions crafted to build anticipation before a release. I designed shareable assets and coordinated schedule timing to amplify fan excitement.",
       link: "https://x.com/toarise_cd",
@@ -46,11 +50,11 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Secret Recipe",
       usage: "Creator-driven social storytelling campaign",
       abilities: [
-        "Community engagement",
-        "Visual storytelling",
-        "Cross-platform promotion"
+        "Social media",
+        "Cross-platform publishing"
       ],
-      equip: "Campaign creator",
+      skills: ["Community engagement", "Visual storytelling", "Campaign strategy"],
+      equip: "Jennifer Truong",
       description:
         "Secret Recipe focused on building audience intrigue and participation through a collaborative social campaign. The work centered on mood, pacing, and a narrative hook that made each post feel like part of a larger reveal.",
       link: "https://www.tumblr.com/talesfanzine",
@@ -60,11 +64,10 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Weekly Makerspace Newsletters",
       usage: "Recurring newsletters for community updates and projects",
       abilities: [
-        "Newsletter design",
-        "Content curation",
-        "Community outreach"
+        "Email newsletter tools"
       ],
-      equip: "Newsletter creator",
+      skills: ["Newsletter design", "Content curation", "Community outreach"],
+      equip: "Jennifer Truong",
       description:
         "This ongoing newsletter series spotlighted makerspace events, equipment updates, guest appearances, and featured projects. The content was designed to keep the community informed while building excitement around monthly initiatives.",
       link: "https://scholarslab.lib.virginia.edu/makerspace//",
@@ -76,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const title = document.getElementById("marketing-title");
   const usage = document.getElementById("marketing-usage");
   const abilities = document.getElementById("marketing-abilities");
+  const skills = document.getElementById("marketing-skills");
   const equip = document.getElementById("marketing-equip");
   const description = document.getElementById("marketing-description");
   const projectLink = document.getElementById("marketing-link");
@@ -86,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
     title.textContent = item.title;
     usage.textContent = item.usage;
     abilities.textContent = item.abilities.join(" • ");
+    skills.textContent = item.skills.join(" • ");
     equip.textContent = item.equip;
     description.textContent = item.description;
 

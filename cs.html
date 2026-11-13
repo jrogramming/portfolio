@@ -35,7 +35,9 @@
     <section class="jrpg-wrap" aria-label="Computer science project switcher">
       <nav class="jrpg-menu" aria-label="Computer science collections">
         <ul id="cs-menu">
-          <li class="selected" data-key="gradio" tabindex="0">Gradio</li>
+          <li class="selected" data-key="gradio" tabindex="0" aria-current="true">Gradio</li>
+          <li data-key="beauty-brands" tabindex="0">Cosmetic Brand Color Scraper</li>
+          <li data-key="purple-detector" tabindex="0">Purple Detector</li>
         </ul>
       </nav>
 
@@ -45,19 +47,23 @@
         </div>
         <div class="panel-body">
           <div class="panel-actions">
-            <a id="cs-link" class="rpubs-button" href="https://github.com/jrogramming/Practice-Porfolio/tree/main/Gradio" target="_blank" rel="noopener noreferrer">View Projects on GitHub</a>
+            <a id="cs-link" class="rpubs-button" href="https://github.com/jrogramming/Practice-Porfolio/tree/main/Gradio" target="_blank" rel="noopener noreferrer">Open Gradio on GitHub</a>
           </div>
           <div id="cs-gallery" class="gallery cs-preview" hidden></div>
           <div class="stat-row">
-            <span class="stat-key">Focus:</span>
+            <span class="stat-key">Usage:</span>
             <span id="cs-usage" class="stat-value"></span>
           </div>
           <div class="stat-row">
-            <span class="stat-key">Tools:</span>
+            <span class="stat-key">Abilities:</span>
             <span id="cs-abilities" class="stat-value"></span>
           </div>
           <div class="stat-row">
-            <span class="stat-key">Role:</span>
+            <span class="stat-key">Skills:</span>
+            <span id="cs-skills" class="stat-value"></span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-key">Equippable By:</span>
             <span id="cs-equip" class="stat-value"></span>
           </div>
           <div class="desc">
