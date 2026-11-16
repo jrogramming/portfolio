@@ -2,6 +2,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const data = {
 
+isam:{
+    title:"ISAM Project",
+    usage:"ISAM research paper and presentation",
+    abilities:["R","Presentation software"],
+    skills:["Research","Data analysis","Presentation development"],
+    equip:"Jennifer Truong and Jordan Phan",
+    description:
+    "ISAM project materials including paper and presentation slides.",
+    link:"assets/Phan_Truong.pdf",
+    embed:"assets/Phan_Truong.pdf",
+    extraLinks:[
+        {
+            href:"assets/presentation.pdf",
+            label:"Open Presentation"
+        }
+    ]
+},
+
+capstone:{
+    title:"Statistics Capstone Project",
+    usage:"Statistics capstone research project",
+    abilities:["Statistics","Research"],
+    skills:["Statistical analysis","Research communication"],
+    equip:"Jennifer Truong",
+    description:
+    "A statistics capstone project. Open the PDF to read the full project.",
+    link:"assets/STATCapstone.pdf",
+    embed:"assets/STATCapstone.pdf"
+},
+
+catalyst:{
+    title:"Catalyst Presentation",
+    usage:"Statistics research presentation",
+    abilities:["Statistics","Presentation software"],
+    skills:["Research communication","Presentation development"],
+    equip:"Jennifer Truong",
+    description:
+    "A statistics presentation. Open the PDF to view the slides.",
+    link:"assets/Catalyst_Presentation.pdf",
+    embed:"assets/Catalyst_Presentation.pdf"
+},
+
 waste:{
     title:"Waste Colonialism RPubs Paper",
     usage:"Applied research storytelling with real data",
@@ -53,24 +95,6 @@ revision:{
     embed:"assets/bestplot.html"
 },
 
-
-isam:{
-    title:"ISAM Project",
-    usage:"ISAM research paper and presentation",
-    abilities:["R","Presentation software"],
-    skills:["Research","Data analysis","Presentation development"],
-    equip:"Jennifer Truong and Jordan Phan",
-    description:
-    "ISAM project materials including paper and presentation slides.",
-    link:"assets/Phan_Truong.pdf",
-    embed:"assets/Phan_Truong.pdf",
-    extraLinks:[
-        {
-            href:"assets/presentation.pdf",
-            label:"Open Presentation"
-        }
-    ]
-}
 
 };
 
@@ -227,7 +251,7 @@ embedToggle.addEventListener("click",()=>{
 
 
 
-updatePanel("waste");
+updatePanel("isam");
 
 
 });
