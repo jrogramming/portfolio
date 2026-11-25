@@ -516,7 +516,7 @@ document.addEventListener('DOMContentLoaded', () => {
     panel.querySelector('.skill-panel-title').textContent = 'Choose a skill';
     panel.querySelector('.skill-panel-years').textContent = '';
     panel.querySelector('.skill-panel-years').hidden = true;
-    panel.querySelector('.skill-panel-description').textContent = 'Select a skill to see more details.';
+    panel.querySelector('.skill-panel-description').textContent = 'Tip: Select a skill to explore related projects.';
     panel.querySelectorAll('.skill-panel-section').forEach((section) => {
       section.hidden = true;
     });
