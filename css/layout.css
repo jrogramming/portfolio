@@ -58,40 +58,6 @@ main{
     margin:0 auto;
 }
 
-.narrow-container{
-
-    width:min(800px,90%);
-
-    margin:0 auto;
-}
-
-/* ---------- Full Width Sections ---------- */
-
-.full-width{
-
-    width:100vw;
-
-    margin-left:calc(50% - 50vw);
-
-    margin-right:calc(50% - 50vw);
-}
-
-/* ---------- Two Column Layout ---------- */
-
-.two-column{
-
-    display:flex;
-
-    gap:40px;
-
-    align-items:flex-start;
-}
-
-.two-column > *{
-
-    flex:1;
-}
-
 /* ---------- Center Helpers ---------- */
 
 .center{
@@ -115,11 +81,6 @@ main{
     main{
 
         padding:24px 16px;
-    }
-
-    .two-column{
-
-        flex-direction:column;
     }
 
     .section-blurb{

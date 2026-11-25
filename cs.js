@@ -12,14 +12,24 @@ document.addEventListener("DOMContentLoaded", () => {
       embed: "https://semanticvana.streamlit.app/?embed=true"
     },
     gradio: {
-      title: "Gradio",
-      usage: "Showcase and launch an interactive Python application",
-      abilities: ["Python", "Gradio"],
-      skills: ["Interface development", "Application prototyping"],
+      title: "Gradio Image Hue Filter",
+      usage: "Apply a purple hue filter to an uploaded image",
+      abilities: ["Python", "Gradio", "Pillow"],
+      skills: ["Image processing", "Gradio interface development", "Image preview"],
       equip: "Jennifer Truong",
-      description: "Upload a picture and apply an image-wide purple hue filter. The Gradio interface transforms the image and lets you preview the tinted result.",
+      description: "A basic Gradio tutorial project: upload an image, apply a purple hue filter, and preview the result.",
       link: "https://github.com/jrogramming/Practice-Porfolio/tree/main/Gradio",
       preview: "assets/purplepreview.png"
+    },
+    greeter: {
+      title: "Gradio Greeter Tutorial",
+      usage: "Build a simple interactive greeting app with Gradio",
+      abilities: ["Python", "Gradio"],
+      skills: ["Gradio basics", "Input and output components", "Interactive app prototyping"],
+      equip: "Jennifer Truong",
+      description: "A beginner tutorial that uses Gradio to collect a name and display a personalized greeting.",
+      link: "https://github.com/jrogramming/Practice-Porfolio/tree/main/Gradio",
+      preview: "assets/greeterpreview.png"
     },
     "beauty-brands": {
       title: "Cosmetic Brand Color Scraper",

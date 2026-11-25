@@ -15,6 +15,35 @@
 <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
+    @keyframes portfolio-page-enter {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes portfolio-page-exit {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+
+    @view-transition {
+      navigation: auto;
+    }
+
+    ::view-transition-old(root) {
+      animation: portfolio-page-exit 180ms ease-in both;
+    }
+
+    ::view-transition-new(root) {
+      animation: portfolio-page-enter 480ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      ::view-transition-old(root),
+      ::view-transition-new(root) {
+        animation: none;
+      }
+    }
+
     :root {
       --pink-dark: #ff4da6;
       --pink-light: #ffc1e3;
@@ -33,9 +62,6 @@
       text-align: center;
       overflow-x: hidden;
     }
-
-    header {
-    padding: 180px 80px 180px;    }
 
 h1 {
   font-family: 'Press Start 2P', cursive;
@@ -62,7 +88,7 @@ h2 {
 }
 
     .menu {
-      margin-top: 60px;
+      margin-top: 0;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
@@ -71,10 +97,12 @@ h2 {
 header {
   width: 100%;
   box-sizing: border-box;
-  aspect-ratio: 16 / 5;
-  padding: 50px 60px 60px;
+  min-height: 100vh;
+  padding: clamp(24px, 5vw, 60px) 20px 72px;
   background-image: url("assets/header.png");
-  background-position: center;
+  background-color: #8dd9ff;
+  background-size: cover;
+  background-position: center 42%;
   background-repeat: no-repeat;
   image-rendering: pixelated;
   position: relative;
@@ -143,28 +171,35 @@ header::after { --pixel-target: #fffafb; }
 /* JRPG-style profile sheet */
 
 .jrpg-sheet {
-  margin-top: 80px;
-  display: flex;
-  gap: 64px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  grid-template-areas:
+    "portrait info";
+  gap: 24px 40px;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
   background: #f6f0e9;
   border: 4px solid #000;
-  padding: 48px 48px;
+  padding: clamp(20px, 4vw, 48px);
   border-radius: 10px;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+  width: min(100%, 1080px);
+  box-sizing: border-box;
   box-shadow: 6px 6px 0 rgb(73, 73, 73);
-  min-height: 240px; /* taller card */
-  margin-bottom: 1px; /* space under the JRPG card */
+  margin-bottom: 1px;
+}
+
+.header-title {
+  margin: 0 0 60px;
+  font-size: clamp(1.4rem, 4vw, 3rem);
+  overflow-wrap: anywhere;
 }
 
 .jrpg-portrait {
+  grid-area: portrait;
   width: 240px;
   height: 240px;
-  background: #ffe3f3;
+  max-width: 100%;
+  background: #8dd9ff;
   border: 4px solid #000;
   display: flex;
   align-items: center;
@@ -185,9 +220,10 @@ header::after { --pixel-target: #fffafb; }
 }
 
 .jrpg-info {
+  grid-area: info;
   text-align: left;
-  flex: 1;
-  min-width: 320px;
+  min-width: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center; /* vertically center content next to portrait */
@@ -201,9 +237,20 @@ header::after { --pixel-target: #fffafb; }
   text-align: center; /* center the title text */
 }
 
+.header-menu {
+  width: min(100%, 1080px);
+  margin: 50px auto 0;
+  gap: 10px;
+}
+
+.header-menu a {
+  padding: 23px 31px;
+  font-size: 0.9rem;
+}
+
 .stat-row { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
 .stat-label { width: 96px; font-family: 'Press Start 2P', cursive; font-size: 0.75rem; color: S#000; }
-.stat-bar { background: #FFE796; border: 2px solid #000; border-radius: 4px; height: 20px; width: 420px; position: relative; overflow: hidden; }
+.stat-bar { background: #FFE796; border: 2px solid #000; border-radius: 4px; height: 20px; width: min(420px, 100%); flex: 1 1 120px; min-width: 0; position: relative; overflow: hidden; }
 .stat-fill { height: 100%; width: 0; transition: width 1s ease-out; background: #8dd9ff;
 ; }
 .stat-numeric { font-family: 'Press Start 2P', sans-serif; font-size: .8rem; margin-left: 12px; color: #333; }
@@ -406,6 +453,88 @@ header::after { --pixel-target: #fffafb; }
   }
 }
 
+@media (max-width: 760px) {
+  header {
+    min-height: 0;
+    padding: 20px 12px 56px;
+    background-size: auto 100%;
+    background-position: center top;
+  }
+
+  .jrpg-sheet {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "portrait"
+      "info";
+    gap: 20px;
+    padding: 18px;
+  }
+
+  .header-title {
+    margin-bottom: 60px;
+  }
+
+  .jrpg-portrait {
+    justify-self: center;
+    width: min(220px, 100%);
+    height: 220px;
+  }
+
+  .jrpg-info {
+    text-align: center;
+  }
+
+  .jrpg-header {
+    font-size: clamp(0.9rem, 4vw, 1.25rem);
+    line-height: 1.5;
+  }
+
+  .stat-row {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .stat-label {
+    width: 58px;
+    text-align: left;
+    font-size: 0.62rem;
+  }
+
+  .stat-bar {
+    flex: 1 1 100px;
+  }
+
+  .stat-numeric {
+    margin-left: 0;
+    font-size: 0.68rem;
+  }
+
+  .equipment,
+  .skills-grid {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .eq-item,
+  .ability {
+    overflow-wrap: anywhere;
+    font-size: 0.55rem;
+  }
+
+  .header-menu {
+    gap: 10px;
+  }
+
+  .header-menu a {
+    flex: 1 1 135px;
+    padding: 14px 10px;
+    font-size: 0.62rem;
+    overflow-wrap: anywhere;
+  }
+}
+
 
     footer {
       background: #fffafb;
@@ -525,7 +654,7 @@ header::after { --pixel-target: #fffafb; }
 
 <body>
   <header>
-    <h1>[Jennifer Truong]</h1>
+    <h1 class="header-title">[Jennifer Truong]</h1>
 <!-- JRPG-style Profile Sheet -->
     <div class="jrpg-sheet" role="region" aria-label="JRPG Profile">
       <div class="jrpg-portrait"><img src="assets/portrait.png" alt="Jennifer's portrait"></div>
@@ -577,16 +706,15 @@ header::after { --pixel-target: #fffafb; }
           <div class="ability">Marketing</div>
         </div>
       </div>
+
     </div>
-  </section>
-    <div class="menu">
+    <nav class="menu header-menu" aria-label="Main navigation">
       <a href="#about">▶ START</a>
       <a href="#projects">💾 PROJECTS</a>
       <a href="#skills">📊 SKILLS</a>
       <a href="https://github.com/jrogramming" target="_blank" rel="noopener noreferrer">🐙 GITHUB</a>
       <a href="https://www.linkedin.com/in/jenniferttruong/" target="_blank" rel="noopener noreferrer">💼 LINKEDIN</a>
-      
-    </div>
+    </nav>
   </header>
 
   <section id="about" class="about">
@@ -903,10 +1031,10 @@ header::after { --pixel-target: #fffafb; }
     
 <div id="game-projects" class="project-category">
 <h4>
-  <a href="games.html" class="project-link">🎮 Gaming Corner </a>
+  <a href="games.html" class="project-link">🎮 Game Dev Den </a>
 </h4>
-  <a href="games.html" class="project-image-link" aria-label="Open Gaming Corner">
-    <img src="assets/switch.png" alt="Gaming Corner project icon" class="project-category-image">
+  <a href="games.html" class="project-image-link" aria-label="Open Game Dev Den">
+    <img src="assets/switch.png" alt="Game Dev Den project icon" class="project-category-image">
   </a>
   <p>Fun and games!</p>
 </div>

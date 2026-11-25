@@ -512,7 +512,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const node = nodeMap.get(id);
       if (node) skillList.appendChild(createNode(node));
     });
-
     panel.querySelector('.skill-panel-title').textContent = 'Choose a skill';
     panel.querySelector('.skill-panel-description').textContent = 'Tip: Select a skill to explore related projects.';
     panel.querySelectorAll('.skill-panel-section').forEach((section) => {
@@ -566,7 +565,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const content = [featuredProjects, node.related, node.links][index];
       section.hidden = content.length === 0;
     });
-
   }
 
   categories.forEach((category) => {

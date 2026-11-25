@@ -8,6 +8,35 @@
     --shadow-dark:#414141;
 }
 
+@keyframes portfolio-page-enter{
+    from{ opacity:0; transform:translateY(10px); }
+    to{ opacity:1; transform:translateY(0); }
+}
+
+@keyframes portfolio-page-exit{
+    from{ opacity:1; }
+    to{ opacity:0; }
+}
+
+@view-transition{
+    navigation:auto;
+}
+
+::view-transition-old(root){
+    animation:portfolio-page-exit 180ms ease-in both;
+}
+
+::view-transition-new(root){
+    animation:portfolio-page-enter 480ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion:reduce){
+    ::view-transition-old(root),
+    ::view-transition-new(root){
+        animation:none;
+    }
+}
+
 *{
     box-sizing:border-box;
 }
