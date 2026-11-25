@@ -514,8 +514,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     panel.querySelector('.skill-panel-title').textContent = 'Choose a skill';
-    panel.querySelector('.skill-panel-years').textContent = '';
-    panel.querySelector('.skill-panel-years').hidden = true;
     panel.querySelector('.skill-panel-description').textContent = 'Tip: Select a skill to explore related projects.';
     panel.querySelectorAll('.skill-panel-section').forEach((section) => {
       section.hidden = true;
@@ -531,7 +529,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     panel.querySelector('.skill-panel-title').textContent = node.label;
-    panel.querySelector('.skill-panel-years').textContent = node.years;
     panel.querySelector('.skill-panel-description').textContent = node.description;
 
     const projectsList = panel.querySelector('.skill-panel-projects');
@@ -570,7 +567,6 @@ document.addEventListener('DOMContentLoaded', () => {
       section.hidden = content.length === 0;
     });
 
-    panel.querySelector('.skill-panel-years').hidden = !node.years;
   }
 
   categories.forEach((category) => {
