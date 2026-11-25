@@ -57,6 +57,10 @@
         background .15s ease;
 }
 
+.toggle-button[hidden]{
+    display:none!important;
+}
+
 .toggle-button:hover,
 .rpubs-button:hover {
     transform: translate(-2px,-2px);

@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ],
       equip: "Jennifer Truong and contributing artists",
       description:
-        "Infinite Horizons was a social media and newsletter campaign built to grow a collective fandom project. I developed campaign messaging, coordinated creator contributions, and designed visual storytelling that drove engagement across multiple platforms.",
+        "A cross-platform social and newsletter campaign for a collaborative fandom project. I shaped campaign messaging, coordinated creator contributions, and used visual storytelling to keep audiences engaged.",
       link: "https://x.com/talesfanzine?lang=en",
       gallery: []
     },
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       skills: ["Brand voice", "Audience research", "Campaign content development"],
       equip: "Jennifer Truong",
       description:
-        "Just Another Day was a marketing refresh for a serialized project, with a focus on cohesive visual identity, social storytelling, and audience retention. I created content previews and teaser assets to keep the community excited and informed.",
+        "A marketing refresh for a serialized story, focused on consistent branding and audience retention. I created social previews and teaser content to build interest between releases.",
       link: "https://x.com/shezdiary?lang=en",
       gallery: []
     },
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       skills: ["Campaign planning", "Launch coordination", "Fan activation"],
       equip: "Jennifer Truong",
       description:
-        "This campaign featured countdown visuals and social promotions crafted to build anticipation before a release. I designed shareable assets and coordinated schedule timing to amplify fan excitement.",
+        "A social countdown campaign leading up to a release. Shareable visuals and scheduled posts built anticipation and encouraged fan participation.",
       link: "https://x.com/toarise_cd",
       gallery: []
     },
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
       skills: ["Community engagement", "Visual storytelling", "Campaign strategy"],
       equip: "Jennifer Truong",
       description:
-        "Secret Recipe focused on building audience intrigue and participation through a collaborative social campaign. The work centered on mood, pacing, and a narrative hook that made each post feel like part of a larger reveal.",
+        "A creator-driven social campaign built around a serialized reveal. Each post used narrative clues, mood, and pacing to invite audience speculation and participation.",
       link: "https://www.tumblr.com/talesfanzine",
       gallery: []
     },
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
       skills: ["Newsletter design", "Content curation", "Community outreach"],
       equip: "Jennifer Truong",
       description:
-        "This ongoing newsletter series spotlighted makerspace events, equipment updates, guest appearances, and featured projects. The content was designed to keep the community informed while building excitement around monthly initiatives.",
+        "A recurring newsletter sharing makerspace events, equipment updates, guest visits, and community projects. Curated updates help readers stay informed and discover ways to participate.",
       link: "https://scholarslab.lib.virginia.edu/makerspace//",
       gallery: []
     }
@@ -121,5 +121,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  updatePanel("infinite");
+  const requestedProject = new URLSearchParams(window.location.search).get("project");
+  const initialItem = [...menuEls].find((item) => item.dataset.key === requestedProject);
+  if (initialItem) {
+    menuEls.forEach((item) => item.classList.remove("selected"));
+    initialItem.classList.add("selected");
+    updatePanel(requestedProject);
+  } else {
+    updatePanel("infinite");
+  }
 });

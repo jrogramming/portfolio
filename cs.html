@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Computer Science Showcase | Jennifer Truong</title>
+  <title>App Alley | Jennifer Truong</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,7 @@
 </head>
 <body>
   <header>
-    <h1>Computer Science Showcase</h1>
+    <h1>App Alley</h1>
     <section class="section-blurb">
       <div class="blurb-inner">
         <p>My computer science work brings together programming, data, and interactive design.</p>
@@ -35,7 +35,8 @@
     <section class="jrpg-wrap" aria-label="Computer science project switcher">
       <nav class="jrpg-menu" aria-label="Computer science collections">
         <ul id="cs-menu">
-          <li class="selected" data-key="gradio" tabindex="0" aria-current="true">Gradio</li>
+          <li class="selected" data-key="stylevana" tabindex="0" aria-current="true">Stylevana Product Discovery App</li>
+          <li data-key="gradio" tabindex="0">Gradio</li>
           <li data-key="beauty-brands" tabindex="0">Cosmetic Brand Color Scraper</li>
           <li data-key="purple-detector" tabindex="0">Purple Detector</li>
         </ul>
@@ -48,6 +49,12 @@
         <div class="panel-body">
           <div class="panel-actions">
             <a id="cs-link" class="rpubs-button" href="https://github.com/jrogramming/Practice-Porfolio/tree/main/Gradio" target="_blank" rel="noopener noreferrer">Open Gradio on GitHub</a>
+            <button id="cs-embed-toggle" class="toggle-button" type="button" hidden aria-expanded="false">View App</button>
+          </div>
+          <div id="cs-embed-area" class="embed-card" hidden>
+            <div class="frame-wrap" style="padding-top: 80%;">
+              <iframe id="cs-embed-frame" src="" title="Embedded Stylevana Product Discovery App" loading="lazy"></iframe>
+            </div>
           </div>
           <div id="cs-gallery" class="gallery cs-preview" hidden></div>
           <div class="stat-row">

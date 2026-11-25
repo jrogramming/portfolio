@@ -605,7 +605,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    select(0);
+    const requestedProject = new URLSearchParams(window.location.search).get("project");
+    const requestedIndex = menu.findIndex((item) => item.dataset.key === requestedProject);
+    select(requestedIndex >= 0 ? requestedIndex : 0);
 
 
 

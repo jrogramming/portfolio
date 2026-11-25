@@ -9,7 +9,7 @@ isam:{
     skills:["Research","Data analysis","Presentation development"],
     equip:"Jennifer Truong and Jordan Phan",
     description:
-    "ISAM project materials including paper and presentation slides.",
+    "Presents an ISAM research project through a written report and companion slides. The materials pair R-based analysis with a concise visual presentation.",
     link:"assets/Phan_Truong.pdf",
     embed:"assets/Phan_Truong.pdf",
     extraLinks:[
@@ -27,7 +27,7 @@ capstone:{
     skills:["Statistical analysis","Research communication"],
     equip:"Jennifer Truong",
     description:
-    "A statistics capstone project. Open the PDF to read the full project.",
+    "An applied statistics capstone report presenting a research question, analysis, and findings. Open the PDF for the full methods and results.",
     link:"assets/STATCapstone.pdf",
     embed:"assets/STATCapstone.pdf"
 },
@@ -39,7 +39,7 @@ catalyst:{
     skills:["Research communication","Presentation development"],
     equip:"Jennifer Truong",
     description:
-    "A statistics presentation. Open the PDF to view the slides.",
+    "A presentation of a statistics project, organized to communicate its analysis and findings. Open the slides for the full project and supporting visuals.",
     link:"assets/Catalyst_Presentation.pdf",
     embed:"assets/Catalyst_Presentation.pdf"
 },
@@ -51,7 +51,7 @@ waste:{
     skills:["Data cleaning","Statistical analysis","Data visualization","Research communication"],
     equip:"Jennifer Truong",
     description:
-    "This project analyzes patterns of waste distribution in relation to colonial structures using real datasets. I cleaned and organized messy data, created clear visuals, and connected statistical results to social context. The work blends technical analysis with narrative explanation so readers can understand both the numbers and their implications.",
+    "Uses real datasets to examine how waste distribution relates to colonial structures. Data cleaning, statistical analysis, and visual storytelling connect the findings to their social context.",
     link:"https://rpubs.com/dszCSadssad/1252371",
     embed:""
 },
@@ -64,7 +64,7 @@ penguin:{
     skills:["Interactive data exploration","Data filtering","Data visualization"],
     equip:"Jennifer Truong (integration and project enhancement)",
     description:
-    "This interactive Shiny app lets users explore penguin data dynamically. Viewers can switch variables and compare species in real time.",
+    "An interactive Shiny app for exploring penguin data. Switch variables and compare species to see how measurements and distributions differ.",
     link:"https://serega29rus.shinyapps.io/PengApp/",
     embed:"https://serega29rus.shinyapps.io/PengApp/"
 },
@@ -77,7 +77,7 @@ worst:{
     skills:["Visual experimentation","Design critique","Statistical communication"],
     equip:"Jennifer Truong",
     description:
-    "This project intentionally creates a bad plot for a data visualization contest to explore what makes graphics ineffective.",
+    "A deliberately ineffective plot created for a visualization contest. It highlights how design choices can obscure data and make a chart harder to interpret.",
     link:"assets/ohmylord.pdf",
     embed:"assets/ohmylord.pdf"
 },
@@ -90,7 +90,7 @@ revision:{
     skills:["Iterative design","Critique-based refinement","Visual communication"],
     equip:"Jennifer Truong",
     description:
-    "This project documents how a messy initial plot evolves into a clearer one through iterative design changes.",
+    "A visual walkthrough of a plot redesign, showing how iterative changes improve clarity, readability, and communication of the data.",
     link:"assets/bestplot.html",
     embed:"assets/bestplot.html"
 },
@@ -251,7 +251,15 @@ embedToggle.addEventListener("click",()=>{
 
 
 
-updatePanel("isam");
+const requestedProject = new URLSearchParams(window.location.search).get("project");
+const initialItem = [...menuEls].find((item) => item.dataset.key === requestedProject);
+if (initialItem) {
+    menuEls.forEach((item) => item.classList.remove("selected"));
+    initialItem.classList.add("selected");
+    updatePanel(requestedProject);
+} else {
+    updatePanel("isam");
+}
 
 
 });
